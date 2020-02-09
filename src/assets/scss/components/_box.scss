@@ -8,6 +8,7 @@
 
 	.box {
 		border: solid 1px _palette(border);
+		background: _palette(border-bg);
 		margin-bottom: _size(element-margin);
 		padding: 1.5em;
 
