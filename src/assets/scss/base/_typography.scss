@@ -14,6 +14,14 @@
 		letter-spacing: _font(letter-spacing);
 		line-height: 1.65;
 
+		.dark {
+			color: _palette(bg);
+
+			&:after {
+				border-bottom: solid 2px _palette(bg);
+			}
+		}
+
 		@include breakpoint(xlarge) {
 			font-size: 14pt;
 		}
@@ -95,6 +103,10 @@
 		font-size: 0.7em;
 	}
 
+	.tab { 
+		margin-left: 40px;
+	}
+
 	@include breakpoint(small) {
 		h1 {
 			font-size: 2em;
@@ -141,6 +153,8 @@
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0 _size(element-margin) 0;
+		background-color: _palette(bg-light);
+		color: _palette(fg-dark);
 
 		code {
 			display: block;

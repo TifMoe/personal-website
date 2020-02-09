@@ -28,26 +28,26 @@ class HomeIndex extends React.Component {
                         <article style={{backgroundImage: `url(${profile})`}}>
                             <header className="major">
                                 <h3>About Me</h3>
-                                <p>If you're curious</p>
+                                <p>Coming soon...</p>
                             </header>
                             <Link to="/blog" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
                             <header className="major">
-                                <h3>The Blog</h3>
-                                <p>There's not much in here yet, but knock yourself out</p>
+                                <h3>Technical Blog</h3>
+                                <p>Tutorials, resources, and lessons learned from my personal projects</p>
                             </header>
                             <Link to="/blog" className="link primary"></Link>
                         </article>
                     </section>
-                    <section id="two darktext">
-                        <div className="inner">
-                            <header className="major">
-                                <h2>Projects</h2>
+                    <section id="two">
+                        <div className="inner dark">
+                            <header className="major dark">
+                                <h2 class="dark">Projects</h2>
                             </header>
                             <p>Eventually, I'll pop a list of personal projects here.</p>
                             <ul className="actions">
-                                <li><Link to="/blog" className="button next">Check it out!</Link></li>
+                                <li><Link to="/blog" className="button dark">Check it out!</Link></li>
                             </ul>
                         </div>
                     </section>
