@@ -33,15 +33,15 @@ const Blog = (props) => (
                     </p>
                 </div>
             </section>
-            <section id="two" className="spotlights">
+            <section id="two" className="spotlights dark">
                 <section>
                     <Link to="/blog/article/serverless/" className="image">
                         <img src={pic08} alt="" />
                     </Link>
                     <div className="content">
-                        <div className="inner dark">
-                            <header className="major dark">
-                                <h3 class="dark">How I built this serverless website</h3>
+                        <div className="inner">
+                            <header className="major">
+                                <h3>How I built this serverless website</h3>
                             </header>
                             <p>Gatsby static site, deployed without an origin server using Cloudflare Workers and KV Storage. The whole process was remarkably apparoachable, fast, fun and cheap!</p>
                             <ul className="actions">

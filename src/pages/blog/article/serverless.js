@@ -1,64 +1,47 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Layout from '../../../components/layout'
+import Blog from '../../../components/Blog'
 
-import pic11 from '../../../assets/images/cloudflare-logo.png'
+import bannerpic from '../../../assets/images/laura-vinck-unsplash-header.jpg'
 import pic12 from '../../../assets/images/serverless-img.png'
 
-const Generic = (props) => (
-    <Layout>
+const Article = (props) => (
+    <Blog>
         <Helmet>
             <title>Article: Serverless Sites</title>
             <meta 
             name="description" 
-            content="Tiffany's Technical Blog" 
-            charset="UTF-8"/>
+            content="Tiffany's Technical Blog" />
         </Helmet>
 
         <div id="main" className="alt">
             <section id="one">
                 <div className="inner">
+                    <span class="image main">
+                        <img src={bannerpic} alt="set your sites free"/>
+                    </span>
                     <header className="major">
-                        <h1>Static Sites + Serverless = <span role="img">😍</span>
-                        <meta charset="UTF-8"/>
+                        <h1>
+                            Gatsby React App + Cloudflare Workers
                         </h1>
                     </header>
-                    <span class="image left"><img src={pic11} alt="Cloudflare Logo" /></span>
-                    <p>
-                        Full disclosure, I currently work at <a href="https://www.cloudflare.com/"> Cloudflare </a>
-                        as an engineer building tools for their Trust and Safety team. 
-                        But Cloudflare is a company with loads of different products from core services like our CDN (content delivery network), firewall and ddos mitigation to
-                        new products like Cloudflare Workers and Workers KV Storage. 
-                    </p>
-                    <p>
-                        Up until last weekend, I am sad to say that I had not done anything with
-                        Cloudflare workers... but that all changed when I discovered how quick and easy it is to deploy static, serverless sites using Cloudflare Workers and KV.
-                        It's worth noting that deployment of static sites is not the only use case for workers, check out their
-                        <a href="https://developers.cloudflare.com/workers/"> developer docs </a> for other cool use-cases like
-                        localization, bulk redirects, and even applications like slack bots!
-                    </p>
-                </div>
-            </section>
 
-            <section id="two">
-                <div className="inner">
-                    <h2>What is Cloudflare Workers and KV?</h2>
-                    <span className="image right"><img src={pic12} alt="Cloudflare Worker; Credit:https://www.cloudflare.com/learning/serverless/serverless-javascript/" /></span>
-                    <p>
-                        Cloudflare Workers are basically just javascript functions which run at the edge. When I say <b>"edge"</b>, 
-                        I just mean the collection of over 200 Cloudflare data centers across the world which comprise our global network.
-                        Workers KV storage is a light key-value cloud storage solution which lets you store static assets in the cloud which
-                        are then accessible to workers running at the "edge".
-                    </p>
-                    <p>
-                        This means that if you have a static site that you want to run super fast, you don't need to stand up your own origin server somewhere
-                        to host your content - you can just deploy it using Cloudflare Workers + KV and make your worker respond to requests from the edge directly.
-                    </p>
-                </div>
-            </section>
+                        <div class="content">
+                            <p>
+                                Full disclosure, I currently work at <a href="https://www.cloudflare.com/"> Cloudflare </a>
+                                as an engineer building tools for their Trust and Safety team. 
+                                But Cloudflare is a company with loads of different products from core services like our CDN (content delivery network), firewall and ddos mitigation to
+                                new products like Cloudflare Workers and Workers KV Storage and there's still some products I haven't had a chance to explore.
+                            </p>
+                            <p>
+                                In fact, up until last weekend I hadn't had a chance to do much with Cloudflare Workers at all
+                                ... but that's all changed now that I know how quick and easy it is to deploy static, serverless sites using Cloudflare Workers and KV.
+                                It's worth noting that deployment of static sites is not the only use case for workers, check out their
+                                <a href="https://developers.cloudflare.com/workers/"> developer docs </a> for other cool use-cases like
+                                localization, bulk redirects, and even applications like slack bots!
+                            </p>
+                        </div>
 
-            <section id="three">
-                <div className="inner">
                     <h2>How I built this blog</h2>
                         <p>
                             This blog is a Gatsby react app deployed directly to Cloudflare's edge - and it only took three steps!
@@ -87,6 +70,29 @@ const Generic = (props) => (
                             </ul>
                         </p>
                     </div>
+            </section>
+
+            <section id="three">
+                <section className="spotlights">
+                    <section>
+                        <div className="content">
+                            <h2>What is Cloudflare Workers and KV?</h2>
+                            <p>
+                                Cloudflare Workers are basically just javascript functions which run at the edge. When I say <b>"edge"</b>, 
+                                I just mean the collection of over 200 Cloudflare data centers across the world which comprise our global network.
+                                Workers KV storage is a light key-value cloud storage solution which lets you store static assets in the cloud which
+                                are then accessible to workers running at the "edge".
+                            </p>
+                            <p>
+                                This means that if you have a static site that you want to run super fast, you don't need to stand up your own origin server somewhere
+                                to host your content - you can just deploy it using Cloudflare Workers + KV and make your worker respond to requests from the edge directly.
+                            </p>
+                        </div>
+                        <a className="image" href="https://www.cloudflare.com/learning/serverless/serverless-javascript/">
+                            <img src={pic12} alt="Cloudflare Worker" />
+                        </a>
+                    </section>
+                </section>
             </section>
 
             <section id="four">
@@ -184,20 +190,20 @@ const Generic = (props) => (
                     <p>
                         The final step is to build your site with yarn and publish with Wrangler. I added a shortcut for this in my
                         project's <code>package.json</code> file, in the scripts section:
-                        <pre><code class="diff">{`
+                        <pre>{`
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
     +    "deploy": "yarn run build && wrangler publish",
 
-                        `}</code></pre>
+                        `}</pre>
                         After this was in place, I just had to run my new command <code>yarn deploy</code> to publish this new site!
                     </p>
                 </div>
             </section>
         </div>
 
-    </Layout>
+    </Blog>
 )
 
-export default Generic
+export default Article
