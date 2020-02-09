@@ -39,8 +39,9 @@
 				width: calc(100% - 3em);
 			}
 
-			.dark {
+			.dark, .blog {
 				color: _palette(bg);
+				background-color: _palette(bg-white);
 			}
 		}
 	}

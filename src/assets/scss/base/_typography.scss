@@ -14,11 +14,14 @@
 		letter-spacing: _font(letter-spacing);
 		line-height: 1.65;
 
-		.dark {
+		.dark, .blog {
 			color: _palette(bg);
 
-			&:after {
-				border-bottom: solid 2px _palette(bg);
+			h1, h2, h3, h4, h5, h6, b, i {
+				color: _palette(bg) !important;
+				&:after {
+					border-bottom: solid 2px _palette(bg) !important;
+				}
 			}
 		}
 
@@ -141,7 +144,8 @@
 	}
 
 	code {
-		background: _palette(border-bg);
+		background: _palette(bg-light);
+		color: _palette(fg-dark);
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0.25em;
@@ -153,8 +157,8 @@
 		font-family: _font(family-fixed);
 		font-size: 0.9em;
 		margin: 0 0 _size(element-margin) 0;
-		background-color: _palette(bg-light);
-		color: _palette(fg-dark);
+		background-color: _palette(bg);
+		color: _palette(fg);
 
 		code {
 			display: block;
