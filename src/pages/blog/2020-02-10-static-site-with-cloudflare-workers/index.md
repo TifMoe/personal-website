@@ -2,7 +2,6 @@
 path: "/blog/static-sites-using-workers"
 date: 2020-02-10
 title: "Static Sites + Cloudflare Workers"
-img: '../../../assets/images/laura-vinck-unsplash-header.jpg'
 ---
 
 I currently work at [Cloudflare](https://www.cloudflare.com/)
@@ -90,7 +89,7 @@ This will automatically generate two things:
 Your `wrangler.toml` file might look pretty sparse initially, but we'll add configuration to tell Wrangler which build file contains our site's static assets (`./public` for my Gatsby project) and which Cloudflare account, zone and even route to deploy the deploy the worker to. 
 For example, my configuration looked like:
 
-```
+```javascript
 name = "tiffany-moeller"
 type = "webpack"
 account_id = "< ACCOUNT ID >"
@@ -118,11 +117,11 @@ In my case, I just needed to do the following:
 The final step is to build your site with yarn and publish with Wrangler. I added a shortcut for this in my
 project's `package.json` file, in the scripts section:
 
-```
+```diff
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-    +    "deploy": "yarn run build && wrangler publish",
+    +   "deploy": "yarn run build && wrangler publish",
 ```
 
 After this was in place, I just had to run my new command `yarn deploy` to publish this new site!

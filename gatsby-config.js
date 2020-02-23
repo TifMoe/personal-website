@@ -23,14 +23,23 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
+        path: `${__dirname}/src/pages/blog`,
+        name: "blog",
       },
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-images"],
+        plugins: ["gatsby-remark-images",
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {}
+            }
+          }
+        ],
       },
     },
     {
@@ -40,7 +49,6 @@ module.exports = {
         stripMetadata: true,
         defaultQuality: 75,
       },
-    },
-    {resolve: `gatsby-transformer-sharp`},
+    }
   ],
 }
