@@ -7,7 +7,6 @@ export default function Template({
   data, 
 }) {
   const { markdownRemark: post } = data
-
   return (
     <Blog>
         <div className="blog-post-container">
@@ -41,7 +40,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        img
       }
     }
   }
