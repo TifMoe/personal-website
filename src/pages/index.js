@@ -43,7 +43,7 @@ class HomeIndex extends React.Component {
                     <section id="two">
                         <div className="inner dark">
                             <header className="major dark">
-                                <h2 class="dark">Projects</h2>
+                                <h2 className="dark">Projects</h2>
                             </header>
                             <p>Eventually, I'll pop a list of personal projects here.</p>
                             <ul className="actions">

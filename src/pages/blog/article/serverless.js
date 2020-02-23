@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Blog from '../../../components/Blog'
+import Blog from '../../../components/BlogLayout'
 
 import bannerpic from '../../../assets/images/laura-vinck-unsplash-header.jpg'
 import pic12 from '../../../assets/images/serverless-img.png'

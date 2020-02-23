@@ -23,4 +23,9 @@
 			border-radius: 0;
 			padding: 0;
 		}
+
+		&.dark {
+			border: solid 1px _palette(bg-light);
+			background: _palette(bg-box) !important;
+		}
 	}
