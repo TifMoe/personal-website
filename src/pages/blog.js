@@ -35,7 +35,7 @@ const Blog = (props) => (
             </section>
             <section id="two" className="spotlights dark">
                 <section>
-                    <Link to="/blog/article/serverless/" className="image">
+                    <Link to="/blog/static-sites-using-workers" className="image">
                         <img src={pic08} alt="" />
                     </Link>
                     <div className="content">
@@ -45,7 +45,7 @@ const Blog = (props) => (
                             </header>
                             <p>Gatsby static site, deployed without an origin server using Cloudflare Workers and KV Storage. The whole process was remarkably apparoachable, fast, fun and cheap!</p>
                             <ul className="actions">
-                                <li><Link to="/blog/article/serverless/" className="button dark">Read more</Link></li>
+                                <li><Link to="/blog/static-sites-using-workers" className="button dark">Read more</Link></li>
                             </ul>
                         </div>
                     </div>

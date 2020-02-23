@@ -17,11 +17,15 @@
 		.dark, .blog {
 			color: _palette(bg);
 
-			h1, h2, h3, h4, h5, h6, b, i {
+			h1, h2, h3, h4, h5, h6, b, i, strong {
 				color: _palette(bg) !important;
 				&:after {
 					border-bottom: solid 2px _palette(bg) !important;
 				}
+			}
+
+			hr {
+				border-bottom: solid 1px _palette(bg-alt);
 			}
 		}
 
@@ -79,6 +83,10 @@
 		a {
 			color: inherit;
 			border-bottom: 0;
+		}
+
+		&:after {
+			border-bottom: solid 2px _palette(bg-light) !important;
 		}
 	}
 
@@ -175,6 +183,11 @@
 
 		&.major {
 			margin: (_size(element-margin) * 1.5) 0;
+		}
+
+		.blog {
+			border: 1;
+			border-bottom: solid 1px _palette(bg);
 		}
 	}
 
