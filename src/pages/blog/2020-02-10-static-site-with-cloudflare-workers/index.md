@@ -63,9 +63,9 @@ Don't feel like you need to make it perfect now - you can always come back and u
 ### 2) Get a domain name and configure Cloudflare DNS (optional) <a name=step2></a>
 
 <div class="dark box">
-This step is optional because you can technically deploy your static site as a `workers.dev` subdomain if you don't 
-care about having your own domain name. The rest of this tutorial will assume that you have purchased a domain name and can switch over the nameservers to your Cloudflare account. 
-At the end, I'll share what I could have done differently to just deploy to the workers.dev subdomain like [this](https://tiffany-moeller.tifmoe.workers.dev/)
+This step is optional because you can technically deploy your static site as a <b>workers.dev</b> subdomain if you don't care about having your own domain name.
+The rest of this tutorial will assume that you have purchased a domain name and can switch over the nameservers to your Cloudflare account. 
+At the end, I'll share what I could have done differently to just deploy to the workers.dev subdomain like <a href="https://tiffany-moeller.tifmoe.workers.dev/">this</a>.
 </div>
 
 I noticed that `tiffanymoeller.com` was available on [porkbun.com](https://porkbun.com/) and I wanted to make a website with my name :)
@@ -103,10 +103,12 @@ entry-point = "workers-site"
 ```
 
 <div class="dark box">
-Pro Tip: You don't *need* to deploy to a specific zone and route if you don't have your own domain name.
-You can always deploy your site as a subdomain of `workers.dev` by:
-- Make `workers_dev = true` above
-- Remove the `zone_id` and `route` fields
+Pro Tip: You don't <i>need</i> to deploy to a specific zone and route if you don't have your own domain name.
+You can always deploy your site as a subdomain of <b>workers.dev</b> by:
+    <ul>
+        <li> Make <b>workers_dev = true</b> above </li>
+        <li> Remove the <b>zone_id</b> and <b>route</b> fields </li>
+    </ul>
 </div>
 
 You'll want to follow the [Configure Quick Setup](https://developers.cloudflare.com/workers/quickstart/#configure) steps for Wrangler to configure everything before deploying. 
