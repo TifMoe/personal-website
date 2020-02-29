@@ -2,6 +2,8 @@
 path: "/blog/static-sites-using-workers"
 date: 2020-02-10
 title: "Static Sites + Cloudflare Workers"
+tags: ["serverless", "gatsby", "cloudflare", "workers", "wrangler"]
+description: "This is a serverless blog I built with Gatsby & React and deployed using Cloudflare Workers. Read more to see how you can build a deploy a super fast static site using Cloudflare Workers"
 ---
 
 I currently work at [Cloudflare](https://www.cloudflare.com/)
@@ -119,7 +121,7 @@ In my case, I just needed to do the following:
 The final step is to build your site with yarn and publish with Wrangler. I added a shortcut for this in my
 project's `package.json` file, in the scripts section:
 
-```diff
+```yaml
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",

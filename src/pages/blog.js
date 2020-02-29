@@ -1,59 +1,129 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Helmet from 'react-helmet'
+import React from "react"
+import { Link, graphql } from "gatsby"
 import Layout from '../components/layout'
+import Helmet from 'react-helmet'
 import BannerBlog from '../components/BannerBlog'
 
-import pic08 from '../assets/images/laura-vinck-unsplash.jpg'
+const BlogIndex = props => {
+  const { data } = props
+  const allPosts = data.allMarkdownRemark.edges
 
-const Blog = (props) => (
+  const emptyQuery = ""
+  const [state, setState] = React.useState({
+    filteredData: [],
+    query: emptyQuery,
+  })
+
+  const handleInputChange = event => {
+    const query = event.target.value
+    const { data } = props
+    // this is how we get all of our posts
+    const posts = data.allMarkdownRemark.edges || []
+    // return all filtered posts
+    const filteredData = posts.filter(post => {
+      // destructure data from post frontmatter
+      const { description, title, tags } = post.node.frontmatter
+      return (
+        // standardize data with .toLowerCase()
+        // return true if the description, title or tags
+        // contains the query string
+        description.toLowerCase().includes(query.toLowerCase()) ||
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        tags
+          .join("") // convert tags from an array to string
+          .toLowerCase()
+          .includes(query.toLowerCase())
+      )
+    })
+    // update state according to the latest query and results
+    setState({
+      query, // with current query string from the `Input` event
+      filteredData, // with filtered data from posts.filter(post => (//filteredData)) above
+    })
+  }
+
+  const { filteredData, query } = state
+  const hasSearchResults = filteredData && query !== emptyQuery
+  const posts = hasSearchResults ? filteredData : allPosts
+
+  return (
     <Layout>
         <Helmet>
             <title>Technical Blog</title>
             <meta name="description" content="Tiffany's Technical Blog" />
         </Helmet>
 
-        <BannerBlog />
+        <section id="banner" className="style2">
+        <div className="inner">
+            <header className="major">
+                <h1>Technical Blog</h1>
+            </header>
+            <div className="content">
+                <p>Filter Blogs</p>
+                <input
+                type="text"
+                aria-label="Search"
+                placeholder="Type to filter posts..."
+                onChange={handleInputChange} />
+            </div>
+        </div>
+        </section>
 
         <div id="main">
-            <section id="one">
-                <div className="inner dark">
-                    <header className="major">
-                        <h2 class="dark">Why Tutorials?</h2>
-                    </header>
-                    <p>Apparently I forget most things as soon as I finish doing them and have found it very helpful in my day-job to record how I do certain things as I learn them.
-                        So, this is the space where I'll keep track of basic how-to's which will inevitably be a helpful resource for myself, but also hopefully can help others in my position as well!
-                    </p>
-                    <p>I'm just getting this started, so it's sparse now - but be on the lookout for tutorials regarding:
-                        <ul>
-                            <li class="tab">Setting up github actions for continuous deployment of serverless sites</li>
-                            <li class="tab">Building and deploying a golang API in Kubernetes cluster</li>
-                            <li class="tab">Configuring your own Airflow instance from the ground up</li>
-                        </ul>
-                    </p>
-                </div>
-            </section>
-            <section id="two" className="spotlights dark">
-                <section>
-                    <Link to="/blog/static-sites-using-workers" className="image">
-                        <img src={pic08} alt="" />
-                    </Link>
-                    <div className="content">
-                        <div className="inner">
-                            <header className="major">
-                                <h3>How I built this serverless website</h3>
-                            </header>
-                            <p>Gatsby static site, deployed without an origin server using Cloudflare Workers and KV Storage. The whole process was remarkably apparoachable, fast, fun and cheap!</p>
-                            <ul className="actions">
-                                <li><Link to="/blog/static-sites-using-workers" className="button dark">Read more</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
+          <div className="inner dark">
+
+            {posts.map(({ node }) => {
+              const { excerpt } = node
+              const { path } = node.frontmatter
+
+              const { title, date, description } = node.frontmatter
+              return (
+                <article key={path}>
+                  <header>
+                    <h2>
+                      <Link to={path}>{title}</Link>
+                    </h2>
+
+                    <p>{date}</p>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: description || excerpt,
+                      }}
+                    />
+                    <ul className="actions">
+                        <li><Link to="/blog/static-sites-using-workers" className="button dark">Read more</Link></li>
+                    </ul>
+                  </section>
+                  <hr />
+                </article>
+              )
+            })}
+          </div>
         </div>
-
     </Layout>
-)
+  )
+}
 
-export default Blog
+export default BlogIndex
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+      edges {
+        node {
+          excerpt(pruneLength: 200)
+          id
+          frontmatter {
+            title
+            description
+            date(formatString: "MMMM DD, YYYY")
+            tags
+            path
+          }
+        }
+      }
+    }
+  }
+`
