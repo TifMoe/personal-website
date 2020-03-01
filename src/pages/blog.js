@@ -1,12 +1,23 @@
 import React from "react"
+import Select from "react-select"
 import { Link, graphql } from "gatsby"
 import Layout from '../components/layout'
 import Helmet from 'react-helmet'
-import BannerBlog from '../components/BannerBlog'
 
 const BlogIndex = props => {
   const { data } = props
   const allPosts = data.allMarkdownRemark.edges
+  const allTags = []
+  allPosts.forEach(({ node }) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach( tag => {
+        if (!allTags.includes(tag)) {
+          allTags.push(tag)
+        }
+      })
+    }
+  })
+  const allTagsMap = allTags.map(tag => ({ label: tag, value: tag, id: tag }));
 
   const emptyQuery = ""
   const [state, setState] = React.useState({
@@ -15,36 +26,69 @@ const BlogIndex = props => {
   })
 
   const handleInputChange = event => {
-    const query = event.target.value
     const { data } = props
-    // this is how we get all of our posts
     const posts = data.allMarkdownRemark.edges || []
-    // return all filtered posts
-    const filteredData = posts.filter(post => {
-      // destructure data from post frontmatter
-      const { description, title, tags } = post.node.frontmatter
-      return (
-        // standardize data with .toLowerCase()
-        // return true if the description, title or tags
-        // contains the query string
-        description.toLowerCase().includes(query.toLowerCase()) ||
-        title.toLowerCase().includes(query.toLowerCase()) ||
-        tags
-          .join("") // convert tags from an array to string
-          .toLowerCase()
-          .includes(query.toLowerCase())
-      )
-    })
-    // update state according to the latest query and results
-    setState({
-      query, // with current query string from the `Input` event
-      filteredData, // with filtered data from posts.filter(post => (//filteredData)) above
-    })
+
+    if (event) {
+      const query = event.map(tag => tag.value);
+          // return all filtered posts
+      const filteredData = posts.filter(post => {
+        // destructure data from post frontmatter
+        const { tags } = post.node.frontmatter
+        return (
+          query.every(v => tags.includes(v))
+        )
+      })
+      // update state according to the latest query and results
+      setState({
+        query,
+        filteredData,
+      })
+
+    } else {
+      // default to empty query if event is null
+      const query = ""
+      setState({
+        query,
+        filteredData,
+      })
+    }
   }
 
   const { filteredData, query } = state
   const hasSearchResults = filteredData && query !== emptyQuery
   const posts = hasSearchResults ? filteredData : allPosts
+
+  const customStyles = {
+    container: base => ({
+      ...base,
+      width: "70%",
+    }),
+    option: (provided) => ({
+      ...provided,
+      borderBottom: '1px dotted darkgrey',
+      color: 'grey',
+    }),
+    control: base => ({
+      ...base,
+      width: "100%",
+      height: 56,
+      display: 'block',
+      border: 'none',
+    }),
+    dropdownIndicator: base => ({
+      ...base,
+      display: "none"
+    }),
+    indicatorSeparator: base => ({
+      ...base,
+      display: "none"
+    }),
+    clearIndicator: base => ({
+      ...base,
+      display: "none"
+    })
+  }
 
   return (
     <Layout>
@@ -59,12 +103,26 @@ const BlogIndex = props => {
                 <h1>Technical Blog</h1>
             </header>
             <div className="content">
-                <p>Filter Blogs</p>
-                <input
-                type="text"
-                aria-label="Search"
-                placeholder="Type to filter posts..."
-                onChange={handleInputChange} />
+              <Select
+                  isMulti
+                  isClearable
+                  onChange={handleInputChange}
+                  styles={customStyles}
+                  options={allTagsMap}
+                  name="filter"
+                  placeholder="Filter blog articles by tags..."
+                  theme={theme => ({
+                    ...theme,
+                    colors: {
+                      ...theme.colors,
+                      primary25: '#c3e6e3',
+                      primary50: '#84b5b1',
+                      primary: "grey",
+                      dangerLight: "#c3e6e3",
+                      danger: "#84b5b1",
+                    },
+                  })}
+                />
             </div>
         </div>
         </section>

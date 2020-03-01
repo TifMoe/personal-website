@@ -93,11 +93,6 @@
 		&:invalid {
 			box-shadow: none;
 		}
-
-		&:focus {
-			border-color: _palette(highlight);
-			box-shadow: 0 0 0 2px _palette(highlight);
-		}
 	}
 
 	.select-wrapper {
