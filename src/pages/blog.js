@@ -7,17 +7,18 @@ import Helmet from 'react-helmet'
 const BlogIndex = props => {
   const { data } = props
   const allPosts = data.allMarkdownRemark.edges
-  const allTags = []
+  let allTags = []
   allPosts.forEach(({ node }) => {
     if (node.frontmatter.tags) {
       node.frontmatter.tags.forEach( tag => {
         if (!allTags.includes(tag)) {
-          allTags.push(tag)
+          allTags.push(tag);
         }
       })
     }
   })
-  const allTagsMap = allTags.map(tag => ({ label: tag, value: tag, id: tag }));
+  allTags = allTags.sort()
+    .map(tag => ({ label: tag, value: tag, id: tag }));
 
   const emptyQuery = ""
   const [state, setState] = React.useState({
@@ -108,7 +109,7 @@ const BlogIndex = props => {
                   isClearable
                   onChange={handleInputChange}
                   styles={customStyles}
-                  options={allTagsMap}
+                  options={allTags}
                   name="filter"
                   placeholder="Filter blog articles by tags..."
                   theme={theme => ({
@@ -134,26 +135,33 @@ const BlogIndex = props => {
               const { excerpt } = node
               const { path } = node.frontmatter
 
-              const { title, date, description } = node.frontmatter
+              const { title, date, description, tags } = node.frontmatter
+              const postTags = tags.sort().map((tag) =>
+                <span className="tag small"> {tag} </span>
+              );
               return (
                 <article key={path}>
                   <header>
                     <h2>
                       <Link to={path}>{title}</Link>
                     </h2>
-
                     <p>{date}</p>
                   </header>
+
                   <section>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: description || excerpt,
                       }}
                     />
+
                     <ul className="actions">
                         <li><Link to="/blog/static-sites-using-workers" className="button dark">Read more</Link></li>
                     </ul>
+
                   </section>
+                  <div className="tag-container"> {postTags} </div>
+
                   <hr />
                 </article>
               )

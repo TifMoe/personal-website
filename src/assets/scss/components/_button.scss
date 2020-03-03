@@ -117,6 +117,7 @@
 			background-color: _palette(fg-bold);
 			box-shadow: none;
 			color: _palette(bg);
+			outline: _palette(bg);
 
 			&:hover, &:active {
 				background-color: _palette(highlight);
