@@ -34,6 +34,11 @@
 			max-width: _size(inner);
 			width: calc(100% - 6em);
 
+			&.flex {
+				flex-wrap: wrap;
+				display: flex;
+			}
+
 			@include breakpoint(small) {
 				@include padding(3em, 0);
 				width: calc(100% - 3em);

@@ -17,7 +17,7 @@ export default function Template({
                 content={`Blog ${post.frontmatter.title}`} />
             </Helmet>
 
-            <div className="inner blog">
+            <div className="inner blog flex">
                     <header className="major">
                         <h1>{post.frontmatter.title}</h1>
                         <h4>{post.frontmatter.date}</h4>

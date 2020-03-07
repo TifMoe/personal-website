@@ -82,7 +82,10 @@ see the [Cloudflare Support Docs](https://support.cloudflare.com/hc/en-us/articl
 Now that you have your app, domain name and Cloudflare account ready, you can deploy with Wrangler. [Wrangler](https://developers.cloudflare.com/workers/tooling/wrangler/) is a Cloudflare CLI built  to help improve the developer experience with workers. 
 We'll use it to automate tasks like creating a new KV namespace, uploading our static assets and deploying our new site.
 
-First, initialize Wrangler in the root of your project directory. 
+First, initialize Wrangler in the root of your project directory by running the following from your project directory:
+```bash
+wrangler init --site
+```
 This will automatically generate two things:
 
 - A `wrangler.toml` configuration file
@@ -114,6 +117,7 @@ You can always deploy your site as a subdomain of <b>workers.dev</b> by:
 </div>
 
 You'll want to follow the [Configure Quick Setup](https://developers.cloudflare.com/workers/quickstart/#configure) steps for Wrangler to configure everything before deploying. 
+
 In my case, I just needed to do the following:
 - Create an API Token with the "Edit Cloudflare Worker Template"
 - Register the API token with Wrangler by running `wrangler config`
