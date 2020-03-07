@@ -158,11 +158,13 @@
 
 		&.major {
 			margin: (_size(element-margin) * 1.5) 0;
+			flex-wrap: wrap;
 		}
 
 		.blog {
 			border: 1;
 			border-bottom: solid 1px _palette(bg);
+			flex-wrap: wrap;
 		}
 	}
 

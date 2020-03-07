@@ -156,7 +156,7 @@ const BlogIndex = props => {
                     />
 
                     <ul className="actions">
-                        <li><Link to="/blog/static-sites-using-workers" className="button dark">Read more</Link></li>
+                        <li><Link to={path} className="button dark">Read more</Link></li>
                     </ul>
 
                   </section>
@@ -184,7 +184,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             description
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMM DD, YYYY")
             tags
             path
           }
