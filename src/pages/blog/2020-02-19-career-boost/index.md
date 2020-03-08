@@ -43,9 +43,7 @@ In most contexts, raw data or results of a fancy SQL query are not actionable or
 
 My tool of choice for data visualization is [Tableau](https://www.tableau.com/learn/training/20201), a visual drag-and-drop interface for composing interactive dashboards - often build off a SQL query when connected to a database backend. Many companies use Tableau, but you can also **use it for free** in personal projects using [Tableau Public](https://public.tableau.com/en-us/s/). 
 
-For example, when my husband and I learned we may be moving to London, I wanted to get my arms around the different boroughs and rental prices so I found some open data on [data.london.gov.uk](https://data.london.gov.uk/) and made a [dashboard to explore London rental prices and crime data side by side](https://public.tableau.com/profile/tiffany.moeller#!/vizhome/2017LondonRentalPrices/PricesandCrimeRates):
-
-<!-- <iframe src="https://public.tableau.com/views/2017LondonRentalPrices/PricesandCrimeRates?:display_count=y&:origin=viz_share_link?:showVizHome=no&:embed=true" width="1020" height="1487" frameborder="0"></iframe> -->
+For example, when my husband and I learned we may be moving to London, I wanted to get my arms around the different boroughs and rental prices so I found some open data on [data.london.gov.uk](https://data.london.gov.uk/) and made a [dashboard to explore London rental prices and crime data side by side](https://public.tableau.com/profile/tiffany.moeller#!/vizhome/2017LondonRentalPrices/PricesandCrimeRates).
 
 ## Data Science <a name=step2></a>
 Coming soon! 
