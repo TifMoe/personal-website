@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Install dependencies
-        run: yarn install --prod --pure-lockfile
-
       - name: Install Wrangler
         run: sudo npm i @cloudflare/wrangler@1.4.0-rc.5
+
+      - name: Install dependencies
+        run: yarn install --prod --pure-lockfile
 
       - name: Build site
         run: 'yarn run build'
