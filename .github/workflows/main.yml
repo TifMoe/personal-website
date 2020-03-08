@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Install Wrangler
-        run: sudo npm i @cloudflare/wrangler@1.4.0-rc.5
-
       - name: Install dependencies
         run: yarn install --prod --pure-lockfile
 
       - name: Build site
         run: 'yarn run build'
+
+      - name: Install Wrangler
+        run: sudo npm i @cloudflare/wrangler@1.4.0-rc.5
 
       - name: Wrangler Publish
         run: CF_API_TOKEN=${{ secrets.CF_API_TOKEN }} wrangler publish
