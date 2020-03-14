@@ -21,7 +21,7 @@ jobs:
       - name: Build site
         run: 'yarn run build'
 
-      - name: Wrangler Publish
+      - name: Publish
         uses: cloudflare/wrangler-action@1.1.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
