@@ -1,12 +1,9 @@
-name: Deploy
+name: Deploy to Staging
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - 'staging/*'
 
 jobs:
   deploy:
@@ -26,4 +23,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           wranglerVersion: '1.6.0'
-          environment: 'production'
+          environment: 'staging'

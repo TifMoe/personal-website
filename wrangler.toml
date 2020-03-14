@@ -1,8 +1,18 @@
-name = "tiffany-moeller"
+name = "tiffany-moeller-dev"
 type = "webpack"
 account_id = "661484bfa811d50ad0a7c946485ad9ae"
-zone_id = "d53c5683f00e72915fb714532816144a"
+workers_dev = true
+
+[env.staging]
+name = "tiffany-moeller-staging"
 workers_dev = false
+zone_id = "d53c5683f00e72915fb714532816144a"
+route = "staging.tiffanymoeller.com/*"
+
+[env.production]
+name = "tiffany-moeller"
+workers_dev = false
+zone_id = "d53c5683f00e72915fb714532816144a"
 route = "tiffanymoeller.com/*"
 
 [site]
