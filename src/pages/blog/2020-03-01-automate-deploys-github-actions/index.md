@@ -5,18 +5,16 @@ title: "Github actions to build automated deployments to production and staging"
 tags: ["github actions", "wrangler", "workers", "devops"]
 description: "Build automated deployment pipelines for your workers site with github actions! This tutorial shows how I configured the deployment pipeline for a staging and production version of my workers site."
 ---
-This is basically a part two of my post on how I built this serverless blog running entirely on Cloudflare Workers. If you haven't read that, you can check it out [here](/blog/static-sites-using-workers). 
+This is basically a part two of my post on [how I built this serverless blog]((/blog/static-sites-using-workers)) running entirely on Cloudflare Workers. The source code for this blog lives [in github](https://github.com/TifMoe/personal-website) and I wanted to configure a some automated deployment pipelines so that when I push any new code on a branch beginning with `staging/` it will automatically build and deploy the code to a staging environment and when I merge a PR into `master/` it will automatically build and deploy the new version of tiffanymoeller.com you're reading now! 
 
-The source code for this blog lives [in github](https://github.com/TifMoe/personal-website) and I wanted to configure a some automated deployment pipelines so that when I push any new code on a branch beginning with `staging/` it will automatically build and deploy the code to a staging environment and when I merge a PR into `master/` it will automatically build and deploy the new version of tiffanymoeller.com you're reading now! 
-
-Leveraging [github actions](https://help.github.com/en/actions), I was able to build out two new continuous deployment pipelines in three steps:
+Leveraging [github actions](https://help.github.com/en/actions), I was able to build out two new continuous deployment pipelines for this serverless blog in three steps:
 
 1. [Make a staging subdomain for my website](#step1)
 2. [Add new environments to my workers configuration](#step2)
 3. [Publish two new github actions](#step3)
 
 <div class="dark box">
-This tutorial assumes that you already have a worker's site deployed to your own domain on Cloudflare and are not just using the workers.dev domain. 
+<b>Note:</b> This tutorial assumes that you already have a worker's site deployed to your own domain on Cloudflare and are not just using the workers.dev domain. 
 It also assumes you have your source code in github (even if it's a free account!)
 </div>
 

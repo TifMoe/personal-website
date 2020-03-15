@@ -27,5 +27,7 @@
 		&.dark {
 			border: solid 1px _palette(bg-light);
 			background: _palette(bg-box) !important;
+			margin-bottom: 2em !important;
+			margin-top: 2em !important;
 		}
 	}

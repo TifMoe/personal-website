@@ -47,6 +47,9 @@
 			.dark, .blog {
 				color: _palette(bg);
 				background-color: _palette(bg-white);
+				width: calc(90%);
+				margin: 0 auto;
+				max-width: _size(inner);
 			}
 		}
 	}
@@ -68,6 +71,7 @@
 	@import 'components/button';
 	@import 'components/tag';
 	@import 'components/tiles';
+	@import 'components/code';
 	@import 'components/contact-method';
 	@import 'components/spotlights';
 

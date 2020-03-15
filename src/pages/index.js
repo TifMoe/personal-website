@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Banner from '../components/Banner'
 
 import profile from '../assets/images/profile.jpeg'
-import pic02 from '../assets/images/markus-spiske-unsplash.jpg'
+import pic02 from '../assets/images/blog-background.jpg'
 
 class HomeIndex extends React.Component {
     render() {
@@ -33,23 +33,12 @@ class HomeIndex extends React.Component {
                             <Link to="/blog" className="link primary"></Link>
                         </article>
                         <article style={{backgroundImage: `url(${pic02})`}}>
-                            <header className="major">
+                            <header className="major dark">
                                 <h3>Technical Blog</h3>
                                 <p>Tutorials, resources, and lessons learned from my personal projects</p>
                             </header>
                             <Link to="/blog" className="link primary"></Link>
                         </article>
-                    </section>
-                    <section id="two">
-                        <div className="inner dark">
-                            <header className="major dark">
-                                <h2 className="dark">Projects</h2>
-                            </header>
-                            <p>Eventually, I'll pop a list of personal projects here.</p>
-                            <ul className="actions">
-                                <li><Link to="/blog" className="button dark">Check it out!</Link></li>
-                            </ul>
-                        </div>
                     </section>
                 </div>
 
