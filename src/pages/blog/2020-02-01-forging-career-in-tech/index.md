@@ -1,6 +1,6 @@
 ---
 path: "/blog/software-engineer-by-way-of-data-science"
-date: 2020-02-19
+date: 2020-02-01
 title: "Forging a career in analytics, data science and software engineering"
 tags: ["career", "resources"]
 ---

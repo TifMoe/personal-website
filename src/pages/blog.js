@@ -98,7 +98,7 @@ const BlogIndex = props => {
             <meta name="description" content="Tiffany's Technical Blog" />
         </Helmet>
 
-        <section id="banner" className="style2">
+        <section id="banner" className="style4">
         <div className="inner">
             <header className="major">
                 <h1>Technical Blog</h1>
@@ -154,10 +154,6 @@ const BlogIndex = props => {
                         __html: description || excerpt,
                       }}
                     />
-
-                    <ul className="actions">
-                        <li><Link to={path} className="button dark">Read more</Link></li>
-                    </ul>
 
                   </section>
                   <div className="tag-container"> {postTags} </div>

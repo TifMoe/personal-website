@@ -117,6 +117,9 @@
     }
 
     &:nth-child(6n - 4) {
+      &:after {
+        background-color: transparentize(_palette(accent2), 0.50);
+      }
       &:before {
         background-color: _palette(accent2);
       }
