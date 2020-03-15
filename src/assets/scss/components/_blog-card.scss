@@ -1,0 +1,21 @@
+/* BlogCard */
+
+.blog-card {    
+    border: solid 1px _palette(border);
+    background: _palette(border-bg);
+    margin-bottom: _size(element-margin);
+    padding: 1.5em;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    > .contents {
+        padding: 2px 16px;
+    }
+}
+
+.blog-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }

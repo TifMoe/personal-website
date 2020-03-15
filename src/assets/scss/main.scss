@@ -44,12 +44,13 @@
 				width: calc(100% - 3em);
 			}
 
-			.dark, .blog {
+			&.dark, &.blog {
 				color: _palette(bg);
 				background-color: _palette(bg-white);
 				width: calc(90%);
 				margin: 0 auto;
 				max-width: _size(inner);
+				padding: 1em 0 1em 0 !important;
 			}
 		}
 	}
@@ -63,6 +64,7 @@
 
 	@import 'components/section';
 	@import 'components/form';
+	@import 'components/blog-card';
 	@import 'components/box';
 	@import 'components/icon';
 	@import 'components/image';

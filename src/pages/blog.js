@@ -3,6 +3,7 @@ import Select from "react-select"
 import { Link, graphql } from "gatsby"
 import Layout from '../components/layout'
 import Helmet from 'react-helmet'
+import BlogPreview from "../components/BlogPreview"
 
 const BlogIndex = props => {
   const { data } = props
@@ -132,34 +133,10 @@ const BlogIndex = props => {
           <div className="inner dark">
 
             {posts.map(({ node }) => {
-              const { excerpt } = node
-              const { path } = node.frontmatter
-
-              const { title, date, description, tags } = node.frontmatter
-              const postTags = tags.sort().map((tag) =>
-                <span className="tag small"> {tag} </span>
-              );
+              console.log(node);
+              const blogs = <BlogPreview blog={ node } />;
               return (
-                <article key={path}>
-                  <header>
-                    <h2>
-                      <Link to={path}>{title}</Link>
-                    </h2>
-                    <p>{date}</p>
-                  </header>
-
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: description || excerpt,
-                      }}
-                    />
-
-                  </section>
-                  <div className="tag-container"> {postTags} </div>
-
-                  <hr />
-                </article>
+                blogs
               )
             })}
           </div>

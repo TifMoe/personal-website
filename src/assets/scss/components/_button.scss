@@ -38,6 +38,22 @@
 		&.dark, .blog {
 			color: _palette(bg);
 			box-shadow: inset 0 0 0 2px _palette(bg);
+
+			&.back {
+				background-color: _palette(fg-bold);
+				box-shadow: none;
+				color: _palette(accent5);
+				outline: _palette(bg);
+				margin-left: 2em;
+				margin-top: 2em;
+				margin-bottom: 0 !important;
+				display: absolute !important;
+
+				&:hover, &:active {
+					background-color: _palette(highlight);
+					color: _palette(fg-bold) !important;
+				}
+			}
 		}
 
 		&:hover, &:active {
