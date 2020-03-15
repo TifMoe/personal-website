@@ -12,10 +12,10 @@ The source code for this blog lives [in github](https://github.com/TifMoe/person
 Leveraging [github actions](https://help.github.com/en/actions), I was able to build out two new continuous deployment pipelines in three steps:
 
 1. [Make a staging subdomain for my website](#step1)
-2. [Add new environments to my wrangler.toml configuration](#step2)
+2. [Add new environments to my workers configuration](#step2)
 3. [Publish two new github actions](#step3)
 
-## Make a staging subdomain <a name=step2></a>
+## Make a staging subdomain <a name=step1></a>
 <div class="dark box">
 This assumes that you have your worker deployed to your own domain on Cloudflare and are not just using the workers.dev domain. 
 </div>
@@ -26,3 +26,7 @@ To create a new staging subdomain, all you need to do is add a new CNAME record 
 
 Please note that it can sometimes take a few hours for new DNS records to propagate so don't worry if you can't immediately see your site at the staging subdomain you just added! 
 
+## Add new environments to workers configuration <a name=step2></a>
+Now I can define a staging and production environment in my workers configuration via my wrangler.toml file. There is great documentation on defining different environments for workers deployments in the [official documentation](https://developers.cloudflare.com/workers/tooling/wrangler/configuration/environments/)
+
+After adding my new environments, 
