@@ -134,3 +134,7 @@ Then you can add the `CF_API_TOKEN` secret to your github project like I did her
 ![Github Secrets](./images/github-secrets.png)
 
 Now when I push code to any branch beginning with `staging/`, github automatically builds the new code and deploys to my secret staging enviornment. When the branch is ready to be merged into master it will auto-deploy to the blog you're reading now! 
+
+If you need to check the status of your automatic builds or debug any of the pipeline configuration, take a look at the Actions tab in your github repo! 
+
+![Github Deployment Pipeline](./images/deploy-pipeline.png)
