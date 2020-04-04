@@ -17,13 +17,13 @@ export default function Template({
                 content={`Blog ${post.frontmatter.title}`} />
             </Helmet>
 
-            <div className="inner blog flex">
+            <div className="inner flex">
                     <header className="major">
                         <h1>{post.frontmatter.title}</h1>
                         <h4>{post.frontmatter.date}</h4>
                     </header>
                     <div
-                    className="blog"
+                    className="inner blog flex"
                     dangerouslySetInnerHTML={{ __html: post.html }}
                     />
             </div>

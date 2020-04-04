@@ -27,10 +27,17 @@ module.exports = {
         name: "blog",
       },
     },
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-images",
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 700
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -38,17 +45,10 @@ module.exports = {
               inlineCodeMarker: null,
               aliases: {}
             }
-          }
+          },
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
-      },
-    }
   ],
 }

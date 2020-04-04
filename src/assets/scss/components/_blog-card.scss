@@ -2,7 +2,7 @@
 
 .blog-card {    
     border: solid 1px _palette(border);
-    background: _palette(border-bg);
+    background: white;
     margin-bottom: _size(element-margin);
     padding: 1.5em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -17,5 +17,9 @@
 }
 
 .blog-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.6);
+
+    > p, h2, body {
+        color: _palette(highlight) !important;
+    }
   }

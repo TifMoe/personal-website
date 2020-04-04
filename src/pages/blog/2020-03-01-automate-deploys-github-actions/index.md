@@ -2,7 +2,7 @@
 path: "/blog/automate-deploys-with-github-actions"
 date: 2020-03-01
 title: "Github actions to build automated deployments to production and staging"
-tags: ["github actions", "wrangler", "workers", "devops"]
+tags: ["github actions", "wrangler", "cloudflare workers", "devops"]
 description: "Build automated deployment pipelines for your workers site with github actions! This tutorial shows how I configured the deployment pipeline for a staging and production version of my workers site."
 ---
 This is basically a part two of my post on [how I built this serverless blog]((/blog/static-sites-using-workers)) running entirely on Cloudflare Workers. The source code for this blog lives [in github](https://github.com/TifMoe/personal-website) and I wanted to configure a some automated deployment pipelines so that when I push any new code on a branch beginning with `staging/` it will automatically build and deploy the code to a staging environment and when I merge a PR into `master/` it will automatically build and deploy the new version of tiffanymoeller.com you're reading now!
@@ -18,7 +18,7 @@ Leveraging [github actions](https://help.github.com/en/actions), I was able to b
 It also assumes you have your source code in github (even if it's a free account!)
 </div>
 
-## Make a staging subdomain <a name=step1></a>
+## 1. Make a staging subdomain <a name=step1></a>
 To create a new staging subdomain, all you need to do is add a new CNAME record in your Cloudflare DNS settings to point `staging` to your root domain! This is what it looked like when I configured mine:
 
 ![DNS CNAME Setup](./images/dns-cname-setup.png)
@@ -29,7 +29,7 @@ Please note that it can sometimes take a few hours for new DNS records to propag
 <b>Pro Tip!</b> If you're not interested in having the rest of the world able to see unfinished versions of your site on this staging subdomain, consider using Cloudflare Access to protect it from public view. It's free for you to authenticate up to 5 different email addresses!!
 </div>
 
-## Add new environments to workers configuration <a name=step2></a>
+## 2. Add new environments to workers configuration <a name=step2></a>
 Now I can define a staging and production environment in my workers configuration via my wrangler.toml file. There is great documentation on defining different environments for workers deployments in the [official documentation](https://developers.cloudflare.com/workers/tooling/wrangler/configuration/environments/)
 
 After adding my new environments, my wrangler.toml file looked like:
@@ -54,7 +54,7 @@ entry-point = "workers-site"
 ```
 This will let me deploy things to staging.tiffanymoeller.com before they are deployed to tiffanymoeller.com! Now we just need to define the automatic deployment pipelines using github actions! 
 
-## Publish new github actions! <a name=step3></a>
+## 3. Publish new github actions! <a name=step3></a>
 There's great documentation on github actions [here](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow). Instead of building my own pipeline from scratch, I decided to use the supported github action in the marketplace which was developed by Cloudflare's workers team! You can find out more about the <b>Deploy to Cloudflare Workers with Wrangler</b> github action [here](https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler). 
 
 I made two new files, `staging.yml` and `main.yml` and added them to a `.github/workflows` folder in my project so github actions would know where to find them. 

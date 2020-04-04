@@ -13,7 +13,7 @@
 
 	table {
 		margin: 0 0 _size(element-margin) 0;
-		width: 100%;
+		width: 90%;
 
 		tbody {
 			tr {
@@ -22,7 +22,7 @@
 				border-right: 0;
 
 				&:nth-child(2n + 1) {
-					background-color: _palette(border-bg);
+					background-color: _palette(bg-light);
 				}
 			}
 		}
@@ -32,8 +32,8 @@
 		}
 
 		th {
-			color: _palette(fg-bold);
-			font-size: 0.9em;
+			color: _palette(bg);
+			font-size: 1em;
 			font-weight: _font(weight-bold);
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;

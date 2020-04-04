@@ -131,14 +131,15 @@ const BlogIndex = props => {
 
         <div id="main">
           <div className="inner dark">
-
-            {posts.map(({ node }) => {
-              console.log(node);
-              const blogs = <BlogPreview blog={ node } />;
-              return (
-                blogs
-              )
-            })}
+            <div className="float">
+              {posts.map(({ node }) => {
+                console.log(node);
+                const blogs = <BlogPreview blog={ node } />;
+                return (
+                  blogs
+                )
+              })}
+            </div>
           </div>
         </div>
     </Layout>
