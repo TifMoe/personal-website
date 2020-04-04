@@ -2,11 +2,13 @@
 path: "/blog/serverless-email-service"
 date: 2020-03-29
 title: "Serverless contact form using Cloudflare Workers"
-tags: ["workers", "devops", "serverless", "react"]
+tags: ["cloudflare workers", "devops", "serverless", "react"]
 description: "Extending serverless react applications by enabling a contact form using a serverless email service hosted on Cloudflare workers!"
 ---
 
-I was building a serverless React application for a friend like I have done for this blog and wanted to enable a contact form without needig to build a backend service to handle the email submission. 
+I was building a serverless React application for a friend's business and wanted to enable a contact form without needing to build a backend service to handle the email submission. Here's the end result in action!
+
+![Contact Form Gif](./images/contact-form.gif)
 
 After researching a bit, I found an excellent example of a serverless email function from [Max Kostinevich](https://maxkostinevich.com/blog/serverless-contact-form/) and used this as inspiration for my own. To make my contact form work I took the following steps:
 
@@ -34,12 +36,14 @@ But I don't want to hit the mailgun endpoint directly from inside my React appli
 Luckily, we can do that with another Cloudflare worker! I'm also going to leverage the new functionality to [add environment variables to Workers scripts](https://blog.cloudflare.com/workers-secrets-environment/) which was released last month.
 
 Since there are no dependencies in this script, it can be deployed directly from the Cloudflare UI where I'll start by adding the following environment variables:
-```javascript
-ADMIN_EMAIL         // Email to recieve contact form entries
-CLIENT_API_KEY      // Key in my React app to authenticate request (optional)
-MAILGUN_API_KEY     // API key in mailgun account
-MAILGUN_DOMAIN      // Verified email subdomain I added to my mailgun account
-```
+
+|Environment Variable| Description|
+|---|---|---|
+|`ADMIN_EMAIL`|Email to recieve contact form entries|
+|`CLIENT_API_KEY`|Key in my React app to authenticate request (optional)|
+|`MAILGUN_API_KEY`| API key in mailgun account|
+|`MAILGUN_DOMAIN`| Verified email subdomain I added to my mailgun account|
+
 
 ![Cloudflare Environment Variable Secrets](./images/email-service-environ-variables.png)
 
@@ -92,6 +96,7 @@ export default UseFetchPost;
 ```
 
 The `UseFetchPost` function above will be called on form submission event from inside my `Contact` class:
+
 ```javascript
 import React from 'react';
 import UseFetchPost from './SubmitForm';
@@ -134,75 +139,75 @@ export default class Contact extends React.Component {
 
     render() {
         return (
-            <div>
-                <section id="contact">
-                    <div className="inner">
-                        <section>
-                            <form
-                                onSubmit={this.handleSubmit}
-                                onReset={this.handleReset}
-                            >
-                                <h3>Get in touch</h3>
-                                <p>Send us a message below </p>
-                                <div className="field half first">
-                                    <label htmlFor="name">Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        value={this.state.name}
-                                        onChange={this.handleInputChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="field half">
-                                    <label htmlFor="email">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="eml1"
-                                        value={this.state.email}
-                                        onChange={this.handleInputChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="field">
-                                    <label htmlFor="message">Message</label>
-                                    <textarea
-                                        name="message"
-                                        id="message"
-                                        rows="6"
-                                        value={this.state.message}
-                                        onChange={this.handleInputChange}
-                                        required
-                                        maxLength="500"
-                                    ></textarea>
-                                </div>
-                                <ul className="actions">
-                                    <li><input
-                                        type="submit"
-                                        value="Send Message"
-                                        className="button primary fit"
-                                    /></li>
-                                    <li><input
-                                        type="reset"
-                                        value="Clear"
-                                        className="button"
-                                    /></li>
-                                </ul>
-                                <input
-                                    type="text"
-                                    class="invisible"
-                                    name="email2"
-                                    value=""
-                                    value={this.state.email2}
-                                    onChange={this.handleInputChange}
-                                />
-                            </form>
-                        </section>
+        <div>
+        <section id="contact">
+            <div className="inner">
+            <section>
+                <form
+                    onSubmit={this.handleSubmit}
+                    onReset={this.handleReset}
+                >
+                    <h3>Get in touch</h3>
+                    <p>Send us a message below </p>
+                    <div className="field half first">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            value={this.state.name}
+                            onChange={this.handleInputChange}
+                            required
+                        />
                     </div>
-                </section>
+                    <div className="field half">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="eml1"
+                            value={this.state.email}
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="field">
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            rows="6"
+                            value={this.state.message}
+                            onChange={this.handleInputChange}
+                            required
+                            maxLength="500"
+                        ></textarea>
+                    </div>
+                    <ul className="actions">
+                        <li><input
+                            type="submit"
+                            value="Send Message"
+                            className="button primary fit"
+                        /></li>
+                        <li><input
+                            type="reset"
+                            value="Clear"
+                            className="button"
+                        /></li>
+                    </ul>
+                    <input
+                        type="text"
+                        class="invisible"
+                        name="email2"
+                        value=""
+                        value={this.state.email2}
+                        onChange={this.handleInputChange}
+                    />
+                </form>
+            </section>
             </div>
+        </section>
+        </div>
         )
     }
 }
