@@ -18,9 +18,7 @@ class BlogPreview extends React.Component {
                 <div className="blog-card">
                     <div key={path} className="contents">
                         <header>
-                        <h2>
-                            <Link to={path}>{title}</Link>
-                        </h2>
+                        <h2>{title}</h2>
                         <p>{date}</p>
                         </header>
 

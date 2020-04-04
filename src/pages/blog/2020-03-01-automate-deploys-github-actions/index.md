@@ -2,7 +2,7 @@
 path: "/blog/automate-deploys-with-github-actions"
 date: 2020-03-01
 title: "Github actions to build automated deployments to production and staging"
-tags: ["github actions", "wrangler", "workers", "devops"]
+tags: ["github actions", "wrangler", "cloudflare workers", "devops"]
 description: "Build automated deployment pipelines for your workers site with github actions! This tutorial shows how I configured the deployment pipeline for a staging and production version of my workers site."
 ---
 This is basically a part two of my post on [how I built this serverless blog]((/blog/static-sites-using-workers)) running entirely on Cloudflare Workers. The source code for this blog lives [in github](https://github.com/TifMoe/personal-website) and I wanted to configure a some automated deployment pipelines so that when I push any new code on a branch beginning with `staging/` it will automatically build and deploy the code to a staging environment and when I merge a PR into `master/` it will automatically build and deploy the new version of tiffanymoeller.com you're reading now!

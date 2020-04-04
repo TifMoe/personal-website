@@ -39,6 +39,7 @@
 
 	.blog {
 		background: _palette(bg-white);
+		max-width: 100%;
 
 		// Prevents animation/transition "flicker" on page load.
 		// Automatically added/removed by js/main.js.
@@ -48,12 +49,12 @@
 					@include vendor('transition', 'none !important');
 				}
 			}
-		
+
 		img {
 			display: block;
+			margin-left: auto;
+			margin-right: auto;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-			width: 90%;
-			height: auto;
+			max-width: 100% !important;
 		}
-
 	}
