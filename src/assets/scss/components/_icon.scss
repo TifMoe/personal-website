@@ -17,9 +17,9 @@
 
 		&.alt {
 			&:before {
-				background-color: _palette(fg-bold);
+				background-color: _palette(pink);
 				border-radius: 100%;
-				color: _palette(bg);
+				color: _palette(white);
 				display: inline-block;
 				height: 2em;
 				line-height: 2em;
@@ -38,6 +38,7 @@
 			&:hover {
 				&:before {
 					background-color: _palette(accent1);
+					color: white;
 				}
 			}
 

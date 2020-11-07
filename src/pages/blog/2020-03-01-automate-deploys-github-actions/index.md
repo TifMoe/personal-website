@@ -1,7 +1,7 @@
 ---
 path: "/blog/automate-deploys-with-github-actions"
 date: 2020-03-01
-title: "Github actions to build automated deployments to production and staging"
+title: "Github actions to automate worker deployments"
 tags: ["github actions", "wrangler", "cloudflare workers", "devops"]
 description: "Build automated deployment pipelines for your workers site with github actions! This tutorial shows how I configured the deployment pipeline for a staging and production version of my workers site."
 ---
