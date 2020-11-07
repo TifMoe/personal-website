@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter - Forty V2",
-    author: "Hunter Chang",
-    description: "A Gatsby.js V2 Starter based on Forty by HTML5 UP"
+    title: 'Gatsby Starter - Forty V2',
+    author: 'Hunter Chang',
+    description: 'A Gatsby.js V2 Starter based on Forty by HTML5 UP',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -24,27 +24,27 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages/blog`,
-        name: "blog",
+        name: 'blog',
       },
     },
     `gatsby-plugin-sharp`,
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 700
+              maxWidth: 700,
             },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              classPrefix: "language-",
+              classPrefix: 'language-',
               inlineCodeMarker: null,
-              aliases: {}
-            }
+              aliases: {},
+            },
           },
           `gatsby-remark-copy-linked-files`,
         ],

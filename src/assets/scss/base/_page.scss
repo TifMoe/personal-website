@@ -24,7 +24,7 @@
 		}
 
 	body {
-		background: _palette(bg);
+		background: _palette(bg-white);
 
 		// Prevents animation/transition "flicker" on page load.
 		// Automatically added/removed by js/main.js.
@@ -39,7 +39,8 @@
 
 	.blog {
 		background: _palette(bg-white);
-		max-width: 100%;
+		max-width: 80%;
+		margin: auto;
 
 		// Prevents animation/transition "flicker" on page load.
 		// Automatically added/removed by js/main.js.
@@ -58,3 +59,4 @@
 			max-width: 100% !important;
 		}
 	}
+

@@ -1,0 +1,25 @@
+/* Selection Filter */
+
+#blog-filter {
+    @include vendor('transition', (
+        'filter #{_duration(menu)} ease',
+        '-webkit-filter #{_duration(menu)} ease',
+        'opacity 0.375s ease-out'
+    ));
+
+    position: fixed;
+    margin-left: 10vw;
+    margin-top: 12vh;
+    width: 60vw;
+
+    @include breakpoint(large) {
+        margin-top: 15vh;
+        margin-left: 8vw;
+    }
+
+    @include breakpoint(small) {
+        width: 90vw !important;
+        margin-top: 17vh;
+        margin-left: 5vw;
+    }
+}

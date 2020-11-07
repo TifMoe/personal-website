@@ -1,34 +1,32 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
 import Blog from '../components/BlogLayout'
 
-export default function Template({
-  data, 
-}) {
+export default function Template({ data }) {
   const { markdownRemark: post } = data
   return (
     <Blog>
-        <div className="blog-post-container">
-            <Helmet> 
-                <title>{`Tiffany's Techincal Blog: ${post.frontmatter.title}`}</title>
-                <meta
-                name="Tiffany's Techincal Blog"
-                content={`Blog ${post.frontmatter.title}`} />
-            </Helmet>
+      <div className="blog-post-container">
+        <Helmet>
+          <title>{`Tiffany's Techincal Blog: ${post.frontmatter.title}`}</title>
+          <meta
+            name="Tiffany's Techincal Blog"
+            content={`Blog ${post.frontmatter.title}`}
+          />
+        </Helmet>
 
-            <div className="inner flex">
-                    <header className="major">
-                        <h1>{post.frontmatter.title}</h1>
-                        <h4>{post.frontmatter.date}</h4>
-                    </header>
-                    <div
-                    className="inner blog flex"
-                    dangerouslySetInnerHTML={{ __html: post.html }}
-                    />
-            </div>
-
+        <div className="inner flex">
+          <header className="major">
+            <h1>{post.frontmatter.title}</h1>
+            <h4>{post.frontmatter.date}</h4>
+          </header>
+          <div
+            className="inner blog flex"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </div>
+      </div>
     </Blog>
   )
 }

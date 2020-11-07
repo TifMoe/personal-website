@@ -6,50 +6,56 @@ import Menu from './Menu'
 import Footer from './Footer'
 
 class Blog extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isMenuVisible: false,
-            loading: 'is-loading'
-        }
-        this.handleToggleMenu = this.handleToggleMenu.bind(this)
+  constructor(props) {
+    super(props)
+    this.state = {
+      isMenuVisible: false,
+      loading: 'is-loading',
     }
+    this.handleToggleMenu = this.handleToggleMenu.bind(this)
+  }
 
-    componentDidMount () {
-        this.timeoutId = setTimeout(() => {
-            this.setState({loading: ''});
-        }, 100);
+  componentDidMount() {
+    this.timeoutId = setTimeout(() => {
+      this.setState({ loading: '' })
+    }, 100)
+  }
+
+  componentWillUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId)
     }
+  }
 
-    componentWillUnmount () {
-        if (this.timeoutId) {
-            clearTimeout(this.timeoutId);
-        }
-    }
+  handleToggleMenu() {
+    this.setState({
+      isMenuVisible: !this.state.isMenuVisible,
+    })
+  }
 
-    handleToggleMenu() {
-        this.setState({
-            isMenuVisible: !this.state.isMenuVisible
-        })
-    }
+  render() {
+    const { children } = this.props
 
-    render() {
-        const { children } = this.props
-
-        return (
-            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
-                <div id="wrapper">
-                    <Header onToggleMenu={this.handleToggleMenu} />
-                    <div className="blog">
-                        <a href="/blog" className="button small dark back">&larr; Back to Blogs!</a>
-                        {children}
-                    </div>
-                    <Footer />
-                </div>
-                <Menu onToggleMenu={this.handleToggleMenu} />
-            </div>
-        )
-    }
+    return (
+      <div
+        className={`body ${this.state.loading} ${
+          this.state.isMenuVisible ? 'is-menu-visible' : ''
+        }`}
+      >
+        <div id="wrapper">
+          <Header onToggleMenu={this.handleToggleMenu} />
+          <div className="blog">
+            <a href="/" className="button small dark back">
+              &larr; Back to Blogs!
+            </a>
+            {children}
+          </div>
+          <Footer />
+        </div>
+        <Menu onToggleMenu={this.handleToggleMenu} />
+      </div>
+    )
+  }
 }
 
 export default Blog
