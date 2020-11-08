@@ -13,8 +13,8 @@
 
 	#header {
 		@include vendor('display', 'flex');
-		background-color: _palette(bg);
-		box-shadow: 0 0 0.25em 0 rgba(0,0,0,0.15);
+		background-color: _palette(pink);
+		// box-shadow: 0 0 0.25em 0 rgba(0,0,0,0.15);
 		cursor: default;
 		font-weight: _font(weight-bold);
 		height: 3.25em;

@@ -1,8 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import Helmet from 'react-helmet'
 import BlogPreview from '../components/BlogPreview'
 
 const BlogIndex = props => {

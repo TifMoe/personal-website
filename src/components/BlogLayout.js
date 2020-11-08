@@ -45,10 +45,10 @@ class Blog extends React.Component {
         <div id="wrapper">
           <Header onToggleMenu={this.handleToggleMenu} />
           <div className="blog">
+            {children}
             <a href="/" className="button small dark back">
               &larr; Back to Blogs!
             </a>
-            {children}
           </div>
           <Footer />
         </div>
