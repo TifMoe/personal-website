@@ -1,0 +1,58 @@
+/* ProjectCard */
+
+.project-card {    
+    background: white;
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 100%;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    height: 350px;
+
+    > .contents {
+        padding: 2px 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "img"
+            "title"
+            "description"
+          ;
+    }
+
+    #card-title {
+        grid-area: title;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin-bottom: 10px;
+        line-height: 1.1em;
+    }
+
+    #card-description {
+        grid-area: description;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #card-img {
+        grid-area: img;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        border-radius: 3px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 15px;
+    }
+
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+  }

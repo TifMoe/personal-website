@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const Header = props => (
-  <header id="header" className="alt">
+  <header id="header">
     <Link to="/" className="logo">
       <strong>Tiffany</strong> <span>Moeller</span>
     </Link>

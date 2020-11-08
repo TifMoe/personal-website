@@ -75,13 +75,16 @@
 	@import 'components/tiles';
 	@import 'components/code';
 	@import 'components/contact-method';
+	@import 'components/project-card';
 	@import 'components/selection-filter';
 	@import 'components/spotlights';
+	
 
 // Layout.
 
 	@import 'layout/header';
 	@import 'layout/banner';
+	@import 'layout/section_container';
 	@import 'layout/main';
 	@import 'layout/contact';
 	@import 'layout/footer';

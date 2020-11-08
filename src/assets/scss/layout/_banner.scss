@@ -17,12 +17,12 @@
 		background-size: cover;
 		border-bottom: 0 !important;
 		cursor: default;
-		height: 50vh;
+		height: 100vh;
 		width: 100vw;
 		margin-bottom: -3.25em;
 		max-height: 32em;
 		min-height: 2em;
-		position: fixed;
+		position: relative;
 		top: -3.25em;
 		background-color: _palette(pink);
 
@@ -45,6 +45,7 @@
 
 		h1 {
 			font-size: 3.25em;
+			color: _palette(fg);
 		}
 
 		> .inner {
@@ -98,9 +99,9 @@
 		}
 
 		&.major {
-			height: 40vh;
+			height: 100vh;
 			min-height: 10em;
-			max-height: 50em;
+			max-height: 100em;
 
 			&.alt {
 				opacity: 0.75;
@@ -154,7 +155,7 @@
 			}
 
 			&.major {
-				height: 40vh;
+				height: 100vh;
 				min-height: 0;
 				max-height: none;
 			}
