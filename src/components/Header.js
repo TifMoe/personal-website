@@ -5,12 +5,12 @@ import { Link } from 'gatsby'
 const Header = props => (
   <header id="header">
     <Link to="/" className="logo">
-      <strong>Tiffany</strong> <span>Moeller</span>
+        <strong>Tiffany</strong> <span>Moeller</span> 
     </Link>
     <nav>
-      {/* <a className="menu-link" onClick={props.onToggleMenu} href="javascript:;">
+      <a className="menu-link" onClick={props.onToggleMenu} href="javascript:;">
         Menu
-      </a> */}
+      </a>
     </nav>
   </header>
 )

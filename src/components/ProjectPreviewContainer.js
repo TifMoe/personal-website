@@ -4,7 +4,7 @@ import ProjectPreview from './ProjectPreview'
 import pic01 from '../assets/images/fishbowl-thumbnail.png'
 import pic02 from '../assets/images/trending-temps-thumbnail.png'
 
-const ProjectPreviewContainer = () => {
+const ProjectPreviewContainer = (props) => {
 
     const projectRegister = [
         {
@@ -34,7 +34,7 @@ const ProjectPreviewContainer = () => {
     }
 
     return (
-        <div className='section-container'>
+        <div id={props.id} className='section-container'>
             <div className='section-header'>
                 <h1 id='section-title'>Projects</h1>
                 <span id='section-description' className='fade'>Personal projects...</span>

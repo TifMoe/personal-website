@@ -68,16 +68,18 @@ const HomeIndex = props => {
             { name: 'keywords', content: 'tech' },
           ]}
         ></Helmet>
-        <Banner />
-        
-        <div id="main" className='home'>
-          <BlogPreviewContainer 
-            blogPosts={posts}
-            filterInput={handleInputChange}
-            blogTags={allTags}
-          />
+        <Banner/>
 
-          <ProjectPreviewContainer />
+
+        <div id="main" className='home'>
+            <BlogPreviewContainer 
+              id="blogs"
+              blogPosts={posts}
+              filterInput={handleInputChange}
+              blogTags={allTags}
+            />
+
+            <ProjectPreviewContainer id="projects"/>
         </div>
       </Layout>
     )
