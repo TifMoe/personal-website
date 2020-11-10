@@ -36,7 +36,7 @@ const BlogPreviewContainer = props => {
     }
 
     return (
-        <div id='blogs' class='section-container'>
+        <div id={props.id} class='section-container'>
             <div class='section-header'>
               <h1 id='section-title'>Blog</h1>
               <Select

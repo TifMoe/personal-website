@@ -1,6 +1,7 @@
 import React from 'react'
+import Scroll from './Scroll';
 
-const Banner = props => {
+const Banner = () => {
 
   return (
     <section id="banner" className="major">
@@ -8,7 +9,9 @@ const Banner = props => {
       <div className="content">
         <span>
           <h1>Welcome!!</h1>
-          <h3>Scroll on down for blog posts 👇</h3>
+          <Scroll type="id" element="blogs" offset={-50}>
+            <h3>Click here or scroll on down for blog posts 👇</h3>
+          </Scroll>
        </span>
       </div>
     </div>
