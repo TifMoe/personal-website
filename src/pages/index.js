@@ -1,6 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { CSSPlugin, AttrPlugin } from 'gsap/all';
+
+const plugins = [CSSPlugin, AttrPlugin]
 
 import Layout from '../components/layout'
 import Banner from '../components/Banner'
