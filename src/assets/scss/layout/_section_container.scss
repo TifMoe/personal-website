@@ -13,6 +13,7 @@
         grid-template-areas: 
           "title  description";
         border-bottom: 1px solid _palette(lt-grey);
+        z-index: _misc(z-index-base) + 1;
         
         #section-title {
             grid-area: title;

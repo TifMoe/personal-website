@@ -45,6 +45,14 @@
 			line-height: 3em;
 		}
 
+		&.smallest {
+			font-size: 0.6em;
+			height: 3em;
+			line-height: 3em;
+			padding-top: .5em;
+			padding-bottom: .5em;
+		}
+
 		&.big {
 			font-size: 1.25em;
 			height: 3em;
