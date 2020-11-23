@@ -13,6 +13,7 @@ const ProjectPreviewContainer = (props) => {
             description: 'Socially distanced party-game built with Go + React + Cloudflare workers',
             link: 'https://fishbowl.rocks',
             image: pic01,
+            tags: ["react", "golang", "kubernetes"],
         }, 
         {
             key: 'temps',
@@ -20,6 +21,7 @@ const ProjectPreviewContainer = (props) => {
             description: 'Dashboard of historical temperature data visualizations built when learning d3.js',
             link: 'https://trendingtemps.com',
             image: pic02,
+            tags: ["d3.js", "workers", "graphQL", "serverless"],
         },
     ]
 
