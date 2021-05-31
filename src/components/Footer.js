@@ -19,10 +19,9 @@ const Footer = props => (
         </li>
       </ul>
       <ul className="copyright">
-        <li>&copy; Made with ❤️ by Tiffany Moeller in Oxford</li>
+        <li>&copy; Made with ❤️ by Tiffany Moeller</li>
         <li>
-          Built using <a href="https://html5up.net">HTML5 UP</a> and
-          <a href="https://www.gatsbyjs.org/"> Gatsby</a>
+          Built using <a href="https://www.gatsbyjs.org/"> Gatsby</a>
         </li>
         <li>
           Deployed using{' '}
