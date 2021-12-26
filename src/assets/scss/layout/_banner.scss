@@ -7,8 +7,9 @@
 /* Banner */
 
 	#banner {
+		@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 		@include vendor('align-items', 'center');
-		// @include vendor('background-image', 'url("../images/banner.jpg")');
+		@include vendor('background-image', 'url("../images/london.jpg")');
 		@include vendor('display', 'flex');
 		@include padding(4em, 0, (2em, 0, 0, 0));
 		background-attachment: fixed;
@@ -21,22 +22,22 @@
 		width: 100vw;
 		margin-bottom: -3.25em;
 		max-height: 32em;
-		min-height: 2em;
+		min-height: 20vh;
 		position: relative;
 		top: -3.25em;
-		background-color: _palette(pink);
+		align-content: top;
 
 
 		&:after {
 			@include vendor('transition', 'opacity #{_duration(banner)} ease');
 			@include vendor('transition-delay', '0.75s');
 			@include vendor('pointer-events', 'none');
-			background-color: _palette(rose);
+			background-color: _palette(pink);
 			content: '';
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0;
+			opacity: .6;
 			position: absolute;
 			top: 0;
 			width: 100%;
@@ -58,6 +59,8 @@
 			padding: 0 !important;
 			position: relative;
 			z-index: 2;
+			height: 100%;
+			margin-top: 20%;
 
 			.image {
 				display: none;
@@ -79,6 +82,8 @@
 				@include vendor('display', 'flex');
 				@include vendor('align-items', 'center');
 				margin: 0 0 _size(element-margin) 0;
+				padding-top: 10vw;
+				align-items: center;
 
 				> * {
 					margin-left: 1.5em;
@@ -90,11 +95,68 @@
 				}
 
 				p {
-					font-size: 0.7em;
+					font-size: 1em;
 					font-weight: _font(weight-bold);
 					letter-spacing: _font(letter-spacing-alt);
 					text-transform: uppercase;
 				}
+			}
+		}
+
+		.typewriter{
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			margin: auto;
+			font-weight: normal !important;
+			font-family: 'Anonymous Pro', monospace !important;
+			letter-spacing: 1vw !important;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			-webkit-box-sizing:content-box;
+			box-sizing:content-box;
+		}
+
+		.welcome-line{
+			border-right: 2px solid rgba(255,255,255,.75);
+			font-size: 10vw !important;
+			line-height: 9vw;
+		}
+
+		.description-line {
+			visibility: hidden;
+			font-size: 1em !important;
+			letter-spacing: .1em !important;
+		}
+
+		.more {
+			border: none;
+			bottom: 0;
+			color: inherit;
+			height: 8.5em;
+			left: 50%;
+			margin-left: -8.5em;
+			outline: 0;
+			padding-left: _size(letter-spacing-alt);
+			position: absolute;
+			text-align: center;
+			width: 16em;
+			z-index: 1;
+	
+			&:after {
+				background-image: url('../images/arrow.png');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				bottom: 4em;
+				content: '';
+				display: block;
+				height: 1.5em;
+				left: 50%;
+				margin: 0 0 0 -0.75em;
+				position: absolute;
+				width: 1.5em;
 			}
 		}
 
@@ -132,12 +194,13 @@
 		}
 
 		@include breakpoint(small) {
-			@include padding(3em, 0, (2em, 0, 0, 0));
+			@include padding(3em, 0, (1em, 0, 0, 0));
 			height: auto;
 			margin-bottom: -2.75em;
 			max-height: none;
 			min-height: 0;
 			top: -2.75em;
+			height: 50vh !important;
 
 			h1 {
 				font-size: 2em;
@@ -146,10 +209,24 @@
 			> .inner {
 				.content {
 					display: block;
+					padding-top: 5vw;
 
 					> * {
 						margin-left: 0;
 						margin-bottom: _size(element-margin);
+					}
+
+					.welcome-line {
+						font-size: 20vw;
+						margin-bottom: 10px;
+					}
+
+					.typewriter {
+						white-space: normal;
+					}
+
+					.more {
+						display: none;
 					}
 				}
 			}
@@ -162,14 +239,32 @@
 		}
 
 		@include breakpoint(xsmall) {
-			@include padding(4em, 0, (2em, 0, 0, 0));
+			@include padding(4em, 0, (1em, 0, 0, 0));
+			.banner {
+				height: 50vh !important;
+			}
 
 			> .inner {
 				.content {
+					padding-top: 2vw;
+
 					p {
 						br {
 							display: none;
 						}
+					}
+
+					.welcome-line {
+						font-size: 20vw;
+						margin-bottom: 10px;
+					}
+
+					.typewriter {
+						white-space: normal;
+					}
+					
+					.more {
+						display: none;
 					}
 				}
 			}
