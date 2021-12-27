@@ -70,7 +70,7 @@ const Banner = () => {
           <div class="typewriter-wrapper">
           <p class="typewriter welcome-line">Welcome!</p>
           <p id="first" class="typewriter description-line">
-            My name is Tiffany and I'm a software engineer based in London
+            My name is Tiffany and I'm a software engineer based in Oxford
           </p>
           <p id="second" class="typewriter description-line">
             This website is still in progress but have a look around!

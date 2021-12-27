@@ -39,7 +39,6 @@ const ProjectPreviewContainer = (props) => {
         <div id={props.id} className='section-container'>
             <div className='section-header'>
                 <h1 id='section-title'>Projects</h1>
-                <span id='section-description' className='fade'>Personal projects...</span>
             </div>
             <div className='content-grid'>
                 {showProjects()}

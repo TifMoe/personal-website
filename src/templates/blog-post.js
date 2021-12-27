@@ -1,12 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import Blog from '../components/BlogLayout'
+import BlogLayout from '../components/BlogLayout'
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data
   return (
-    <Blog>
+    <BlogLayout>
       <div className="blog-post-container">
         <Helmet>
           <title>{`Tiffany's Techincal Blog: ${post.frontmatter.title}`}</title>
@@ -27,7 +27,7 @@ export default function Template({ data }) {
           />
         </div>
       </div>
-    </Blog>
+    </BlogLayout>
   )
 }
 export const pageQuery = graphql`

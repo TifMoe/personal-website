@@ -1,16 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter - Forty V2',
-    author: 'Hunter Chang',
-    description: 'A Gatsby.js V2 Starter based on Forty by HTML5 UP',
+    title: 'Tiffany Moeller Tech Blog',
+    author: 'Tiffany Moeller',
+    description: 'Tiffany Moeller Personal Tech Blog',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'tiffany-blog',
+        short_name: 'tiffany',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',

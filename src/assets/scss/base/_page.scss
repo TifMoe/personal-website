@@ -24,32 +24,18 @@
 		}
 
 	body {
+		background: _palette(bg);
+	}
+
+	.blog-wrapper {
 		background: _palette(bg-white);
-
-		// Prevents animation/transition "flicker" on page load.
-		// Automatically added/removed by js/main.js.
-			&.is-loading {
-				*, *:before, *:after {
-					@include vendor('animation', 'none !important');
-					@include vendor('transition', 'none !important');
-				}
-			}
-
+		width: 100%;
 	}
 
 	.blog {
 		background: _palette(bg-white);
 		max-width: 80%;
 		margin: auto;
-
-		// Prevents animation/transition "flicker" on page load.
-		// Automatically added/removed by js/main.js.
-			&.is-loading {
-				*, *:before, *:after {
-					@include vendor('animation', 'none !important');
-					@include vendor('transition', 'none !important');
-				}
-			}
 
 		img {
 			display: block;

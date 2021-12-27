@@ -17,7 +17,7 @@ const BlogPreviewContainer = props => {
       control: base => ({
         ...base,
         width: '100%',
-        height: 56,
+        height: 40,
         display: 'block',
         border: 'none',
       }),
@@ -47,7 +47,7 @@ const BlogPreviewContainer = props => {
                     styles={customStyles}
                     options={props.blogTags}
                     name="filter"
-                    placeholder="Filter blog articles by tags..."
+                    placeholder="Filter articles by tags..."
                     theme={theme => ({
                     ...theme,
                       colors: {
