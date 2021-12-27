@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Scroll from './Scroll'
 
-export default function Menu({onToggleMenu}) {
+export default function Menu({onToggleMenu, onHomePage}) {
+
   const navigateTo = (element, offset) => {
-    const pathname = window.location.pathname
     const button = <button className="fit special">
       {element == 'banner' ? 'home' : element}
     </button>
 
-    if (pathname == '/') {
+    if (onHomePage) {
       return (
         <Scroll onClick={onToggleMenu} type="id" element={element} offset={offset}>
           {button}

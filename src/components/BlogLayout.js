@@ -27,7 +27,7 @@ export default function BlogLayout({ children }) {
           </div>
           <Footer />
         </div>
-        <Menu onToggleMenu={handleToggleMenu} />
+        <Menu onToggleMenu={handleToggleMenu} onHomePage={false}/>
       </div>
   )
 }

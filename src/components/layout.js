@@ -22,7 +22,7 @@ export default function Layout({ children }) {
         {children}
         <Footer />
       </div>
-      <Menu onToggleMenu={handleToggleMenu} />
+      <Menu onToggleMenu={handleToggleMenu} onHomePage={true}/>
     </div>
   )
 }
