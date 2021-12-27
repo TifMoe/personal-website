@@ -2,21 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-const Header = props => (
-  <header id="header">
+export default function Header({ onToggleMenu }) {
+  return (
+    <header id="header">
     <Link to="/" className="logo">
         <strong>Tiffany</strong> <span>Moeller</span> 
     </Link>
     <nav>
-      <a className="menu-link" onClick={props.onToggleMenu} href="javascript:;">
+      <a className="menu-link" onClick={onToggleMenu} href="javascript:;">
         Menu
       </a>
     </nav>
   </header>
-)
-
-Header.propTypes = {
-  onToggleMenu: PropTypes.func,
+  )
 }
-
-export default Header

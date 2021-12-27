@@ -156,12 +156,6 @@
 			&.style6 { .logo { strong { color: _palette(accent6); } } }
 		}
 
-		.body.is-loading & {
-			&.alt {
-				opacity: 0;
-			}
-		}
-
 		@include breakpoint(xlarge) {
 			nav {
 				a {

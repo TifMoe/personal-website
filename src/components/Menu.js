@@ -1,43 +1,47 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Scroll from './Scroll'
 
-const Menu = props => (
-  <nav id="menu">
-    <div className="inner">
-      <ul className="links">
-        <li>
-            <Scroll onClick={props.onToggleMenu} type="id" element="banner">
-              <button className="fit special">
-                Home
-              </button>
-            </Scroll>
-        </li>
-        <li>
-            <Scroll onClick={props.onToggleMenu} type="id" element="blogs" offset={-50}>
-              <button className="fit special">
-                Blog
-              </button>
-            </Scroll>
-        </li>
-        <li>
-            <Scroll onClick={props.onToggleMenu} type="id" element="projects" offset={-50}>
-              <button className="fit special">
-                Projects
-              </button>
-            </Scroll>
-        </li>
-      </ul>
-    </div>
-    <a className="close" onClick={props.onToggleMenu} href="javascript:;">
-      Close
-    </a>
-  </nav>
-)
+export default function Menu({onToggleMenu}) {
+  const navigateTo = (element, offset) => {
+    const pathname = window.location.pathname
+    const button = <button className="fit special">
+      {element == 'banner' ? 'home' : element}
+    </button>
 
-Menu.propTypes = {
-  onToggleMenu: PropTypes.func,
+    if (pathname == '/') {
+      return (
+        <Scroll onClick={onToggleMenu} type="id" element={element} offset={offset}>
+          {button}
+        </Scroll>
+      )
+    }
+
+    return (
+      <Link to={'/#' + element}>
+          {button}
+      </Link>
+    )
+  }
+
+  return (
+    <nav id="menu">
+      <div className="inner">
+        <ul className="links">
+          <li>
+            {navigateTo('banner', 0)}
+          </li>
+          <li>
+            {navigateTo('blogs', -50)}
+          </li>
+          <li>
+            {navigateTo('projects', -50)}
+          </li>
+        </ul>
+      </div>
+      <a className="close" onClick={onToggleMenu} href="javascript:;">
+        Close
+      </a>
+    </nav>
+  )
 }
-
-export default Menu
