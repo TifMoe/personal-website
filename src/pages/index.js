@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { CSSPlugin, AttrPlugin } from 'gsap/all';
@@ -10,9 +10,49 @@ import ProjectPreviewContainer from '../components/ProjectPreviewContainer'
 
 const plugins = [CSSPlugin, AttrPlugin]
 
-const HomeIndex = props => {
-  const { data } = props
-  const allPosts = data.allMarkdownRemark.edges
+export default function HomeIndex( {data} ) {
+  const allPosts = data.allMarkdownRemark.edges || []
+  const [displayedPosts, setDisplayedPosts] = useState(allPosts)
+  const allTags = unpackTags(allPosts)
+
+  const handleTagSelection = event => {
+    if (event) {
+      const newQuery = event.map(tag => tag.value)
+      const filteredData = allPosts.filter(post => {
+        const { tags } = post.node.frontmatter
+        return newQuery.every(v => tags.includes(v))
+      })
+      setDisplayedPosts(filteredData)
+    } else {
+      // default to display all posts if event is null
+      setDisplayedPosts(allPosts)
+    }
+  }
+
+  return (
+    <Layout>
+      <Helmet
+        title="Tiffany Moeller"
+        meta={[
+          { name: 'description', content: 'Personal Website' },
+          { name: 'keywords', content: 'tech' },
+        ]}
+      ></Helmet>
+      <Banner/>
+      <div id="main" className='home'>
+          <BlogPreviewContainer 
+            id="blogs"
+            blogPosts={displayedPosts}
+            filterInput={handleTagSelection}
+            blogTags={allTags}
+          />
+          <ProjectPreviewContainer id="projects"/>
+      </div>
+    </Layout>
+  )
+}
+
+function unpackTags(allPosts) {
   let allTags = []
   allPosts.forEach(({ node }) => {
     if (node.frontmatter.tags) {
@@ -23,72 +63,8 @@ const HomeIndex = props => {
       })
     }
   })
-  allTags = allTags.sort().map(tag => ({ label: tag, value: tag, id: tag }))
-
-  const emptyQuery = ''
-  const [state, setState] = React.useState({
-    filteredData: [],
-    query: emptyQuery,
-  })
-
-  const handleInputChange = event => {
-    const { data } = props
-    const posts = data.allMarkdownRemark.edges || []
-
-    if (event) {
-      const query = event.map(tag => tag.value)
-      // return all filtered posts
-      const filteredData = posts.filter(post => {
-        // destructure data from post frontmatter
-        const { tags } = post.node.frontmatter
-        return query.every(v => tags.includes(v))
-      })
-      // update state according to the latest query and results
-      setState({
-        query,
-        filteredData,
-      })
-    } else {
-      // default to empty query if event is null
-      const query = ''
-      setState({
-        query,
-        filteredData,
-      })
-    }
-  }
-
-  const { filteredData, query } = state
-  const hasSearchResults = filteredData && query !== emptyQuery
-  const posts = hasSearchResults ? filteredData : allPosts
-
-    return (
-      <Layout>
-        <Helmet
-          title="Tiffany Moeller"
-          meta={[
-            { name: 'description', content: 'Personal Website' },
-            { name: 'keywords', content: 'tech' },
-          ]}
-        ></Helmet>
-        <Banner/>
-
-
-        <div id="main" className='home'>
-            <BlogPreviewContainer 
-              id="blogs"
-              blogPosts={posts}
-              filterInput={handleInputChange}
-              blogTags={allTags}
-            />
-
-            <ProjectPreviewContainer id="projects"/>
-        </div>
-      </Layout>
-    )
+  return allTags.sort().map(tag => ({ label: tag, value: tag, id: tag }))
 }
-
-export default HomeIndex
 
 export const blogPageQuery = graphql`
   query {

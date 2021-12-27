@@ -1,9 +1,9 @@
 
 .section-container {
-    color: _palette(bg);
+    color: _palette(font-light);
 
     .section-header{
-        background-color: _palette(fg);
+        background-color: _palette(bg);
         height: 100px;
         width: 100%;
         top: 50px;
@@ -12,7 +12,7 @@
         grid-template-columns: 1fr 5fr;
         grid-template-areas: 
           "title  description";
-        border-bottom: 1px solid _palette(lt-grey);
+        border-bottom: 1px solid _palette(accent1);
         z-index: _misc(z-index-base) + 1;
         
         #section-title {
@@ -24,9 +24,12 @@
 
         #section-description {
             grid-area: description;
+            padding-left: 20px;
+            width: 80%;
             display: flex;
+            align-self: center;
             align-items: center;
-            justify-content: left;
+            justify-content: center;
            
             &.fade {
                 color: grey;
@@ -51,19 +54,28 @@
     }
 
 
-    @include breakpoint(xsmall) {
-        .section-header{
-            top: 43px;
-            grid-template-columns: 1fr;
-            grid-template-areas: 
-              "title"
-              "description";
-            }
-      }
+    // @include breakpoint(xsmall) {
+    //     .section-header{
+    //         height: 150px;
+    //         top: 43px;
+    //         grid-template-columns: 1fr;
+    //         grid-template-areas: 
+    //           "title"
+    //           "description";
+
+    //         #section-description {
+    //             padding-left: 0px;
+    //         }
+    //     }
+    //   }
 
     @include breakpoint(small) {
         .content-grid{
             grid-template-columns: 1fr 1fr;
+        }
+
+        .section-header{
+            top: 40px;
         }
     }
 

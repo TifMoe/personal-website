@@ -1,13 +1,14 @@
 /* BlogCard */
 
 .blog-card {    
-    border: solid 1px _palette(border);
-    background: white;
+    border-bottom: solid 2px _palette(border);
+    background: _palette(bg);
+    color: _palette(font-light);
     transition: 0.3s;
     border-radius: 5px;
     width: 100%;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-right: 10px;
@@ -39,7 +40,7 @@
         align-items: center;
         justify-content: left;
         margin-bottom: 8px;
-        color: _palette(dk-grey);
+        color: _palette(accent1);
         font-weight: bold;
     }
 
@@ -67,6 +68,10 @@
             "date"
             "description"
             "tags";
+        }
+
+        #card-tags {
+            margin-bottom: 32px;
         }
     }
 }

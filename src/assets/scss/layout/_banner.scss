@@ -9,7 +9,7 @@
 	#banner {
 		@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 		@include vendor('align-items', 'center');
-		@include vendor('background-image', 'url("../images/london.jpg")');
+		@include vendor('background-image', 'url("../images/oxford.jpeg")');
 		@include vendor('display', 'flex');
 		@include padding(4em, 0, (2em, 0, 0, 0));
 		background-attachment: fixed;
@@ -32,12 +32,12 @@
 			@include vendor('transition', 'opacity #{_duration(banner)} ease');
 			@include vendor('transition-delay', '0.75s');
 			@include vendor('pointer-events', 'none');
-			background-color: _palette(pink);
+			background-color: _palette(accent2);
 			content: '';
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: .6;
+			opacity: .8;
 			position: absolute;
 			top: 0;
 			width: 100%;
@@ -46,7 +46,7 @@
 
 		h1 {
 			font-size: 3.25em;
-			color: _palette(fg);
+			color: _palette(font-light);
 		}
 
 		> .inner {

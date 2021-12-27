@@ -20,8 +20,8 @@
 		background-color: transparent;
 		border: 0;
 		border-radius: 0;
-		box-shadow: inset 0 0 0 2px _palette(fg-bold);
-		color: _palette(fg-bold);
+		box-shadow: inset 0 0 0 2px _palette(accent1);
+		color: _palette(accent1);
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -40,9 +40,9 @@
 			box-shadow: inset 0 0 0 2px _palette(bg);
 
 			&.back {
-				background-color: _palette(fg-bold);
+				background-color: _palette(accent1);
+				color: _palette(font-dark);
 				box-shadow: none;
-				color: _palette(accent5);
 				outline: _palette(bg);
 				margin-left: 2em;
 				margin-top: 2em;
@@ -50,21 +50,21 @@
 				display: absolute !important;
 
 				&:hover, &:active {
-					background-color: _palette(pink);
-					color: _palette(fg-bold) !important;
+					background-color: _palette(accent3);
+					color: _palette(font-light);
 				}
 			}
 		}
 
 		&:hover, &:active {
-			box-shadow: inset 0 0 0 2px _palette(pink);
-			color: _palette(pink);
+			box-shadow: inset 0 0 0 2px _palette(accent2);
+			color: _palette(accent2);
 		}
 
 		&:active {
-			background-color: transparentize(_palette(pink), 0.9);
-			box-shadow: inset 0 0 0 2px desaturate(darken(_palette(pink), 15), 5);
-			color: desaturate(darken(_palette(pink), 15), 5);
+			background-color: transparentize(_palette(accent2), 0.9);
+			box-shadow: inset 0 0 0 2px desaturate(darken(_palette(accent2), 15), 5);
+			color: desaturate(darken(_palette(accent2), 15), 5);
 		}
 
 		&.icon {
@@ -109,11 +109,11 @@
 			}
 
 			&:before {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(fg-bold)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(accent1)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
 			}
 
 			&:after {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(highlight)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="24px" viewBox="0 0 36 24" zoomAndPan="disable"><style>line { stroke: #{_palette(accent3)}; stroke-width: 2px; }</style><line x1="0" y1="12" x2="34" y2="12" /><line x1="25" y1="4" x2="34" y2="12.5" /><line x1="25" y1="20" x2="34" y2="11.5" /></svg>');
 				opacity: 0;
 				z-index: 1;
 			}
@@ -130,18 +130,18 @@
 		}
 
 		&.special {
-			background-color: _palette(fg-bold);
+			background-color: _palette(accent1);
 			box-shadow: none;
 			color: _palette(bg);
 			outline: _palette(bg);
 
 			&:hover, &:active {
-				background-color: _palette(pink);
+				background-color: _palette(accent2);
 				color: _palette(bg) !important;
 			}
 
 			&:active {
-				background-color: desaturate(darken(_palette(pink), 15), 5);
+				background-color: desaturate(darken(_palette(accent2), 15), 5);
 			}
 		}
 

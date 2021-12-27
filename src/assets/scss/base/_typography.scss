@@ -7,14 +7,14 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: _palette(fg);
+		color: _palette(font-light);
 		font-family: _font(family);
 		font-size: 17pt;
 		font-weight: _font(weight);
 		letter-spacing: _font(letter-spacing);
 		line-height: 1.65;
 
-		.dark, .blog {
+		.blog {
 			color: _palette(bg);
 
 			h1, h2, h3, h4, h5, h6, b, i, strong {
@@ -25,7 +25,7 @@
 			}
 
 			hr {
-				border-bottom: solid 1px _palette(bg-alt);
+				border-bottom: solid 1px _palette(accent1);
 			}
 		}
 
@@ -56,12 +56,12 @@
 		}
 
 		&:active {
-			color: desaturate(darken(_palette(highlight), 15), 5) !important;
+			color: desaturate(darken(_palette(accent3), 15), 5) !important;
 		}
 	}
 
 	strong, b {
-		color: _palette(fg-bold);
+		color: _palette(accent1);
 		font-weight: _font(weight-bold);
 	}
 

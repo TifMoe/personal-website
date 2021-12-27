@@ -42,7 +42,7 @@ class Blog extends React.Component {
           this.state.isMenuVisible ? 'is-menu-visible' : ''
         }`}
       >
-        <div id="wrapper">
+        <div className="blog-wrapper" id="wrapper">
           <Header onToggleMenu={this.handleToggleMenu} />
           <div className="blog">
             {children}

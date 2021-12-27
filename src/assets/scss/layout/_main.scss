@@ -7,13 +7,13 @@
 /* Main */
 
 	#main {
-		background-color: _palette(bg-white);
+		background-color: _palette(bg);
 		max-width: 90%;
 		margin: auto;
-		color: _palette(bg);
+		color: _palette(font-light);
 
 		> * {
-			border-top: solid 1px _palette(border);
+			// border-top: solid 1px _palette(border);
 
 			&:first-child {
 				border-top: 0;

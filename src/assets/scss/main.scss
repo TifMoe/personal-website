@@ -44,7 +44,7 @@
 				width: calc(100% - 3em);
 			}
 
-			&.dark, &.blog {
+			&.blog {
 				color: _palette(bg);
 				background-color: _palette(bg-white);
 				width: calc(90%);
@@ -63,7 +63,6 @@
 // Component.
 
 	@import 'components/section';
-	@import 'components/form';
 	@import 'components/blog-card';
 	@import 'components/box';
 	@import 'components/icon';
@@ -72,12 +71,9 @@
 	@import 'components/table';
 	@import 'components/button';
 	@import 'components/tag';
-	@import 'components/tiles';
 	@import 'components/code';
-	@import 'components/contact-method';
 	@import 'components/project-card';
 	@import 'components/selection-filter';
-	@import 'components/spotlights';
 	
 
 // Layout.
@@ -86,7 +82,6 @@
 	@import 'layout/banner';
 	@import 'layout/section_container';
 	@import 'layout/main';
-	@import 'layout/contact';
 	@import 'layout/footer';
-	@import 'layout/wrapper';
 	@import 'layout/menu';
+	@import 'layout/wrapper';

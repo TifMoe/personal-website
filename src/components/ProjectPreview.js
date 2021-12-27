@@ -4,7 +4,7 @@ const ProjectPreview = props => {
     const {key, title, description, link, image, tags} = props.project
     const projectTags = tags
       .sort()
-      .map(tag => <span className="tag smallest" style={{backgroundColor: "white"}}> {tag} </span>)
+      .map(tag => <span className="tag small" style={{backgroundColor: "white"}}> {tag} </span>)
 
     return (
         <a href={link}>
