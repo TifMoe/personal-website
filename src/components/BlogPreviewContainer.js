@@ -2,81 +2,45 @@ import React from 'react'
 import Select from 'react-select'
 import BlogPreview from './BlogPreview'
 
+export default function BlogPreviewContainer( {id, blogPosts, filterInput, blogTags}) {
+  return (
+    <div id={id} class='section-container'>
+      <div class='section-header'>
+        <h1 id='section-title'>Blog</h1>
+        <Select
+              id='section-filter'
+              isMulti
+              isClearable
+              onChange={filterInput}
+              options={blogTags}
+              name="filter"
+              placeholder="Filter articles by tags..."
+              theme={theme => ({
+              ...theme,
+                colors: {
+                    ...theme.colors,
+                    primary25: '#F4F3F6', // highlight for options in list
+                    primary: 'grey', // selected option background
+                    dangerLight: '#E88C7D', // background x in close
+                    danger: 'white', // x in close
+                },
+              })}
+              style={base => ({
+                ...base,
+                border: 0,
+                boxShadow: "none"
+              })}
+          />  
+      </div>
 
-const BlogPreviewContainer = props => {
-    const customStyles = {
-      container: base => ({
-        ...base,
-        width: '70%',
-      }),
-      option: provided => ({
-        ...provided,
-        borderBottom: '1px dotted darkgrey',
-        color: 'grey',
-      }),
-      control: base => ({
-        ...base,
-        width: '100%',
-        height: 40,
-        display: 'block',
-        border: 'none',
-      }),
-      dropdownIndicator: base => ({
-        ...base,
-        display: 'none',
-      }),
-      indicatorSeparator: base => ({
-        ...base,
-        display: 'none',
-      }),
-      clearIndicator: base => ({
-        ...base,
-        display: 'none',
-      }),
-    }
-
-    return (
-        <div id={props.id} class='section-container'>
-            <div class='section-header'>
-              <h1 id='section-title'>Blog</h1>
-              <Select
-                    id='section-description'
-                    isMulti
-                    isClearable
-                    onChange={props.filterInput}
-                    styles={customStyles}
-                    options={props.blogTags}
-                    name="filter"
-                    placeholder="Filter articles by tags..."
-                    theme={theme => ({
-                    ...theme,
-                      colors: {
-                          ...theme.colors,
-                          primary25: '#F4F3F6', // highlight for options in list
-                          primary: 'grey', // selected option background
-                          dangerLight: '#E88C7D', // background x in close
-                          danger: 'white', // x in close
-                      },
-                    })}
-                    style={base => ({
-                      ...base,
-                      border: 0,
-                      boxShadow: "none"
-                    })}
-                />  
-            </div>
-
-            <div className="inner dark">
-                <div className="float">
-                  {props.blogPosts.map(({ node }) => {
-                    const blogs = <BlogPreview blog={node} />
-                    return blogs
-                  })}
-                </div>
-            </div>
-        </div>
-    )
+      <div className="inner dark">
+          <div className="float">
+            {blogPosts.map(({ node }) => {
+              const blogs = <BlogPreview blog={node} />
+              return blogs
+            })}
+          </div>
+      </div>
+    </div>
+  )
 }
-
-export default BlogPreviewContainer
-

@@ -20,7 +20,7 @@ export default function HomeIndex( {data} ) {
       const newQuery = event.map(tag => tag.value)
       const filteredData = allPosts.filter(post => {
         const { tags } = post.node.frontmatter
-        return newQuery.every(v => tags.includes(v))
+        return newQuery.find(v => tags.includes(v))
       })
       setDisplayedPosts(filteredData)
     } else {

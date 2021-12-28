@@ -22,11 +22,13 @@
             justify-content: left;
         }
 
-        #section-description {
+        #section-filter {
             grid-area: description;
+            color: _palette(font-dark);
             padding-left: 20px;
-            width: 80%;
-            display: flex;
+            height: 40;
+            width: 90%;
+            display: block;
             align-self: center;
             align-items: center;
             justify-content: center;
@@ -63,7 +65,7 @@
     //           "title"
     //           "description";
 
-    //         #section-description {
+    //         #section-filter {
     //             padding-left: 0px;
     //         }
     //     }
