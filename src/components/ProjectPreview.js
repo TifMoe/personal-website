@@ -12,11 +12,8 @@ const ProjectPreview = props => {
                 <div key={key} className="contents">
                     <h2 id='card-title'>{title}</h2>
                     <div id='card-img' style={{ backgroundImage: `url(${image})` }}/>
-                </div>
-                <div className="overlay">
-                    <h2 id='overlay-title'>{title}</h2>
-                    <p>{description}</p>
-                    <span id="overlay-tags">{projectTags}</span>
+                    <span id="card-description">{description}</span>
+                    <span id="card-tags">{projectTags}</span>
                 </div>
             </div>  
         </a>
