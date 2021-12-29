@@ -47,10 +47,8 @@
 			&.blog {
 				color: _palette(bg);
 				background-color: _palette(bg-white);
-				width: calc(90%);
 				margin: 0 auto;
-				max-width: _size(inner);
-				padding: 1em 0 1em 0 !important;
+				width: 100%;
 			}
 		}
 	}

@@ -33,14 +33,11 @@ export default function BlogPreviewContainer( {id, blogPosts, filterInput, blogT
           />  
       </div>
 
-      <div className="inner dark">
-          <div className="float">
-            {blogPosts.map(({ node }) => {
-              const blogs = <BlogPreview blog={node} />
-              return blogs
-            })}
-          </div>
-      </div>
+      {/* Dynamically create new rows based on number of blogs */}
+      {blogPosts.map(({ node }) => {
+          const blogPreview = <BlogPreview blog={node} />
+          return blogPreview
+        })}
     </div>
   )
 }
