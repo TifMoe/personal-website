@@ -14,17 +14,25 @@ export default function BlogPreview({blog}) {
       <Link to={path}>
         <div className="blog-card">
           <div key={path} className="content-grid">
-              <h2 id='card-title'>{title}</h2>
-              <span id='card-date'>{date}</span>
 
-            <section id='card-description'>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: description || excerpt,
-                }}
-              />
-            </section>
-            <div className="tag-container" id='card-tags'> {postTags} </div>
+              <div className='card-timeline'>
+                <span className="dot"></span>
+                <h3>{date}</h3>
+              </div>
+
+              <div className="card-content">
+                <h2 id='card-title'>{title}</h2>
+                <h3 id="card-date">{date}</h3>
+                <section id='card-description'>
+                    <p
+                    dangerouslySetInnerHTML={{
+                      __html: description || excerpt,
+                    }}
+                  />
+                </section>
+                <div className="tag-container" id='card-tags'> {postTags} </div>
+              </div>
+
           </div>
         </div>
       </Link>
