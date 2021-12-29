@@ -6,7 +6,9 @@
 
 /* Footer */
 
-	#footer {
+	#footer {	
+		margin-top: 100px;
+	
 		.copyright {
 			font-size: 0.8em;
 			list-style: none;
@@ -29,6 +31,7 @@
 		}
 
 		@include breakpoint(xsmall) {
+			margin-top: 150px;
 			.copyright {
 				li {
 					display: block;

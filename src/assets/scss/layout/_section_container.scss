@@ -44,33 +44,6 @@
         }
     }
 
-    > .content-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 5%;
-        margin-top: 50px;
-
-        > a {
-            border-bottom: none;
-        }
-    }
-
-
-    // @include breakpoint(xsmall) {
-    //     .section-header{
-    //         height: 150px;
-    //         top: 43px;
-    //         grid-template-columns: 1fr;
-    //         grid-template-areas: 
-    //           "title"
-    //           "description";
-
-    //         #section-filter {
-    //             padding-left: 0px;
-    //         }
-    //     }
-    //   }
-
     @include breakpoint(small) {
         .content-grid{
             grid-template-columns: 1fr 1fr;
