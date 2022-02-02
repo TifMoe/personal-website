@@ -2,15 +2,19 @@
 
 .project-cards-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: max-content;
-    grid-gap: 5%;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 50px;
 
     > a {
         border-bottom: none;
+    }
+
+    @include breakpoint(large) {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 20px;
     }
 
     @include breakpoint(small) {
@@ -20,10 +24,9 @@
 }
 
 .project-card {
-    background: radial-gradient(circle at top, _palette(bg-accent) 10%, _palette(bg) 100%);
+    background: radial-gradient(circle at top right, _palette(bg-accent) 20%, _palette(bg) 100%);
     color: _palette(font-light);
     transition: 0.3s;
-    border-radius: 10px;
     width: 100%;
     height: 100%;
     margin: auto;
@@ -87,13 +90,8 @@
         padding: 5px;
     }
 
-    @include breakpoint(small) {
-        max-width: 500px !important;
-    }
-
 }
 
 .project-card:hover {
-    background: _palette(bg);
-    border: 1px solid -palette(white);
+    background: _palette(bg-accent);
   }
