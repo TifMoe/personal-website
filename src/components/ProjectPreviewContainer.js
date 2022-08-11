@@ -20,7 +20,7 @@ const ProjectPreviewContainer = (props) => {
             key: 'temps',
             title: 'Trending Temps',
             description: 'Dashboard of historical temperature data visualizations built when learning d3.js. This consumes an Apollo graphQL API I also built and deployed using Cloudflare Workers',
-            link: 'https://trendingtemps.com',
+            link: 'https://temps.tiffanymoeller.com',
             image: pic02,
             tags: ["d3.js", "cloudflare workers", "graphQL"],
         },
